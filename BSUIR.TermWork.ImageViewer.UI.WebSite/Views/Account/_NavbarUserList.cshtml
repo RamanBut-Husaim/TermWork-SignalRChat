@@ -1,0 +1,13 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Account;
+
+@model IList<AccountSimpleViewModel>
+           
+<li id="image-actions-list" class="active">
+    <a href="#">Users</a>
+    <ul class="nav">
+        @for (int i = 0; i < Model.Count; ++i)
+        {
+            <li><a href="#">@Model[i].Email</a></li>
+        }
+    </ul>
+</li>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6384A1BE-361E-4109-9C82-B1DA4E0E82C4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BSUIR.TermWork.ImageViewer.UI.Infrastructure</RootNamespace>
+    <AssemblyName>BSUIR.TermWork.ImageViewer.UI.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\CustomAuthFilter.cs" />
+    <Compile Include="Authentication\CustomAuthentication.cs" />
+    <Compile Include="Authentication\CustomAuthenticationExtensions.cs" />
+    <Compile Include="Authentication\CustomAuthenticationHttpModule.cs" />
+    <Compile Include="Authentication\CustomIdentity.cs" />
+    <Compile Include="Authentication\CustomPrincipal.cs" />
+    <Compile Include="Authentication\ICustomAuthentication.cs" />
+    <Compile Include="Authentication\ICustomIdentity.cs" />
+    <Compile Include="Authentication\UserInfo.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Filters\AjaxRequestOnlyFilter.cs" />
+    <Compile Include="Filters\SubscriptionVerificationFilter.cs" />
+    <Compile Include="Filters\ViewBagPopulatorFilter.cs" />
+    <Compile Include="IImageConverter.cs" />
+    <Compile Include="ImageConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Data.EF\BSUIR.TermWork.ImageViewer.Data.EF.csproj">
+      <Project>{e4deb6eb-9ee6-4640-b1f2-38e490aadb40}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Data\BSUIR.TermWork.ImageViewer.Data.csproj">
+      <Project>{d1984e02-9283-4626-b1aa-1a16206fb19f}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Model\BSUIR.TermWork.ImageViewer.Model.csproj">
+      <Project>{baeebe4a-ea27-407f-bb1f-851b9bda6526}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Services.Contracts\BSUIR.TermWork.ImageViewer.Services.Contracts.csproj">
+      <Project>{d9c82df9-7f43-459b-a3a1-5bf35bd32207}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Services.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Services\BSUIR.TermWork.ImageViewer.Services.csproj">
+      <Project>{a5d8ceef-ac53-4b7f-9be3-00ca723738a8}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Shared\BSUIR.TermWork.ImageViewer.Shared.csproj">
+      <Project>{8b87910c-1599-4361-bd11-d909113a8efe}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

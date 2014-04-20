@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="AlbumName" xml:space="preserve">
+    <value>Album Name</value>
+  </data>
+  <data name="Albums" xml:space="preserve">
+    <value>Albums</value>
+  </data>
+  <data name="Account_ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Account_DifferentPassowrds" xml:space="preserve">
+    <value>Passwords are different!</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>Such email already exists!</value>
+  </data>
+  <data name="Account_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailTooLong" xml:space="preserve">
+    <value>Email address is too long!</value>
+  </data>
+  <data name="EmptyEmail" xml:space="preserve">
+    <value>Email is empty!</value>
+  </data>
+  <data name="Exception_AlbumNameTooLong" xml:space="preserve">
+    <value>The album name is too long!</value>
+  </data>
+  <data name="Exception_CommentTooLong" xml:space="preserve">
+    <value>The comment is too long!</value>
+  </data>
+  <data name="Exception_ContentTooLarge" xml:space="preserve">
+    <value>The content is too large!</value>
+  </data>
+  <data name="Exception_ContentTypeTooLong" xml:space="preserve">
+    <value>The content type is too long!</value>
+  </data>
+  <data name="Exception_DescriptionTooLong" xml:space="preserve">
+    <value>The description is too long</value>
+  </data>
+  <data name="Exception_DuplicateAlbumName" xml:space="preserve">
+    <value>The album with such name already exists!</value>
+  </data>
+  <data name="Exception_EmptyAlbumName" xml:space="preserve">
+    <value>The album name is empty!</value>
+  </data>
+  <data name="Exception_EmptyComment" xml:space="preserve">
+    <value>The comment is empty!</value>
+  </data>
+  <data name="Exception_EmptyContent" xml:space="preserve">
+    <value>The content is empty!</value>
+  </data>
+  <data name="Exception_EmptyContentType" xml:space="preserve">
+    <value>The content type is empty!</value>
+  </data>
+  <data name="Exception_EmptyDescription" xml:space="preserve">
+    <value>The description is empty!</value>
+  </data>
+  <data name="Exception_EmptyExtension" xml:space="preserve">
+    <value>The extension is empty!</value>
+  </data>
+  <data name="Exception_EmptyImageName" xml:space="preserve">
+    <value>The image name is empty!</value>
+  </data>
+  <data name="Exception_EmptyTag" xml:space="preserve">
+    <value>The tag is empty!</value>
+  </data>
+  <data name="Exception_ExtensionTooLong" xml:space="preserve">
+    <value>The extension is too long!</value>
+  </data>
+  <data name="Exception_FileTooLarge" xml:space="preserve">
+    <value>The file is too large!</value>
+  </data>
+  <data name="Exception_ImageNameTooLong" xml:space="preserve">
+    <value>The image name is too long!</value>
+  </data>
+  <data name="Exception_InvalidDate" xml:space="preserve">
+    <value>The date is incorrect!</value>
+  </data>
+  <data name="Exception_NullAlbum" xml:space="preserve">
+    <value>The album is null!</value>
+  </data>
+  <data name="Exception_NullImage" xml:space="preserve">
+    <value>The image is null!</value>
+  </data>
+  <data name="Exception_NullOwner" xml:space="preserve">
+    <value>The owner is null!</value>
+  </data>
+  <data name="Exception_NullTags" xml:space="preserve">
+    <value>The tags is null!</value>
+  </data>
+  <data name="Exception_TagTooLong" xml:space="preserve">
+    <value>The tag is too long!</value>
+  </data>
+  <data name="Account_FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="FirstNameMissing" xml:space="preserve">
+    <value>First name field is missing!</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Email address is invalid!</value>
+  </data>
+  <data name="InvalidFirstNameLength" xml:space="preserve">
+    <value>First name is too long!</value>
+  </data>
+  <data name="InvalidLastNameLength" xml:space="preserve">
+    <value>Last name is too long!</value>
+  </data>
+  <data name="InvalidPasswordLength" xml:space="preserve">
+    <value>Password length is incorrect!</value>
+  </data>
+  <data name="InvalidUserNameOrPassword" xml:space="preserve">
+    <value>Invalid user name or password!</value>
+  </data>
+  <data name="Account_LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="LastNameMissing" xml:space="preserve">
+    <value>Last name field is missing!</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="OperationFailure" xml:space="preserve">
+    <value>Operation failed! Try again!</value>
+  </data>
+  <data name="Account_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordConfirmationMissing" xml:space="preserve">
+    <value>Password confirmation field is empty!</value>
+  </data>
+  <data name="PasswordMissing" xml:space="preserve">
+    <value>Password field is missing!</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Prev</value>
+  </data>
+  <data name="Account_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RemeberMe" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Account_SignIn" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="Account_SignOut" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="Account_Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Account_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Operation_Success" xml:space="preserve">
+    <value>Operation has been completed successfully.</value>
+  </data>
+</root>

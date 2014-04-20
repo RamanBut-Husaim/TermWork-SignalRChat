@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Images";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row navbar-margin">
+    <div class="col-md-3">
+        @{Html.RenderAction("NavigationBar", "Image");}
+    </div>
+    <div id="user-image-list" class="col-md-9">
+        <h1>Images</h1>
+        @{Html.RenderAction("ImageSlider", "Image");}
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/image/image.js"></script>
+    <script type="text/javascript" src="~/Scripts/image/imageactions.js"></script>
+}
+

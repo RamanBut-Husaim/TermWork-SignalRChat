@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5D8CEEF-AC53-4B7F-9BE3-00CA723738A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BSUIR.TermWork.ImageViewer.Services</RootNamespace>
+    <AssemblyName>BSUIR.TermWork.ImageViewer.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ImageResizer">
+      <HintPath>..\packages\ImageResizer.3.4.2\lib\ImageResizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommentService.cs" />
+    <Compile Include="Extensions\StringComparator.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="ImageAlbumService.cs" />
+    <Compile Include="ImageResizingService.cs" />
+    <Compile Include="MembershipService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchService.cs" />
+    <Compile Include="SubscriptionService.cs" />
+    <Compile Include="Validators\AccessRightValidator.cs" />
+    <Compile Include="Validators\AlbumValidator.cs" />
+    <Compile Include="Validators\CommentValidator.cs" />
+    <Compile Include="Validators\EntityBaseValidator.cs" />
+    <Compile Include="Validators\EntityValidator.cs" />
+    <Compile Include="Validators\ImageValidator.cs" />
+    <Compile Include="Validators\ProfileValidator.cs" />
+    <Compile Include="Validators\RoleValidator.cs" />
+    <Compile Include="Validators\UserValidator.cs" />
+    <Compile Include="Validators\ValidatorFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Data.EF\BSUIR.TermWork.ImageViewer.Data.EF.csproj">
+      <Project>{e4deb6eb-9ee6-4640-b1f2-38e490aadb40}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Data\BSUIR.TermWork.ImageViewer.Data.csproj">
+      <Project>{d1984e02-9283-4626-b1aa-1a16206fb19f}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Model\BSUIR.TermWork.ImageViewer.Model.csproj">
+      <Project>{baeebe4a-ea27-407f-bb1f-851b9bda6526}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Resources\BSUIR.TermWork.ImageViewer.Resources.csproj">
+      <Project>{a532c7a4-46a0-403b-a2bd-e7d4bb761710}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Services.Contracts\BSUIR.TermWork.ImageViewer.Services.Contracts.csproj">
+      <Project>{d9c82df9-7f43-459b-a3a1-5bf35bd32207}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Services.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Shared\BSUIR.TermWork.ImageViewer.Shared.csproj">
+      <Project>{8b87910c-1599-4361-bd11-d909113a8efe}</Project>
+      <Name>BSUIR.TermWork.ImageViewer.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

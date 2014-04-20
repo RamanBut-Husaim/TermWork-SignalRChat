@@ -1,0 +1,17 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.Infrastructure
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>An error occurred while processing your request.</h2>
+        <div class="validation-summary-errors">
+            @if (TempData[Constants.TempDataErrorMessage] != null)
+            {
+                @TempData[Constants.TempDataErrorMessage]
+            }
+        </div>
+    </div>
+</div>

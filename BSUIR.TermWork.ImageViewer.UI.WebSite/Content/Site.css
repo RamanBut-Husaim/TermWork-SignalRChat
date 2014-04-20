@@ -1,0 +1,187 @@
+﻿body {
+    padding-bottom: 20px;
+    padding-top: 50px;
+}
+
+/* Set padding to keep content from hitting the edges */
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+
+input,
+select,
+textarea { max-width: 280px; }
+
+/* styles for validation helpers */
+
+.field-validation-error { color: #b94a48; }
+
+.field-validation-valid { display: none; }
+
+input.input-validation-error { border: 1px solid #b94a48; }
+
+input[type="checkbox"].input-validation-error { border: 0 none; }
+
+.validation-summary-errors { color: #b94a48; }
+
+.validation-summary-valid { display: none; }
+
+/*---------------------CUSTOM-------------------------------------------------*/
+
+.featurette-divider { margin: 80px 0; }
+
+.upload-file-form {
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+}
+
+.album-name-heading {
+    font-size: 20px;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-top: 20px;
+}
+
+.album-item-divider {
+    margin: 20px 0;
+}
+.comment-item-divider {
+   margin: 10px 0; 
+}
+
+.featurette-heading {
+    font-size: 50px;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-top: 120px;
+}
+
+.navbar-margin { margin-top: 30px; }
+
+.footer {
+    background-color: #F5F5F5;
+    height: 60px;
+}
+
+.credit { margin: 20px 0; }
+
+#wrap {
+    height: auto;
+    margin: 0 auto -60px;
+    min-height: 100%;
+    padding: 0 0 60px;
+}
+
+.user-data {
+    font-size: 1.0em;
+    /*padding-top: 10px;*/
+}
+
+.table-header {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+.shift-left { margin-left: 10px; }
+
+.navbar-elements { margin-top: 10px; }
+
+
+/*
+ * Side navigation
+ *
+ * Scrollspy and affixed enhanced navigation to highlight sections and secondary
+ * sections of docs content.
+ */
+
+/* By default it's not affixed in mobile views, so undo that */
+.bs-sidebar.affix { position: static; }
+
+/* First level of nav */
+
+.bs-sidenav {
+    background-color: #f7f5fa;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    -ms-text-shadow: 0 1px 0 #fff;
+    -webkit-text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 #fff;
+}
+
+/* All levels of nav */
+
+.bs-sidebar .nav > li > a {
+    color: #716b7a;
+    display: block;
+    padding: 5px 20px;
+}
+
+.bs-sidebar .nav > li > a:hover,
+.bs-sidebar .nav > li > a:focus {
+    background-color: #e5e3e9;
+    border-right: 1px solid #dbd8e0;
+    text-decoration: none;
+}
+
+.bs-sidebar .nav > .active > a,
+.bs-sidebar .nav > .active:hover > a,
+.bs-sidebar .nav > .active:focus > a {
+    background-color: transparent;
+    border-right: 1px solid #563d7c;
+    color: #563d7c;
+    font-weight: bold;
+}
+
+/* Nav: second level (shown on .active) */
+
+.bs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    margin-bottom: 8px;
+}
+
+.bs-sidebar .nav .nav > li > a {
+    font-size: 90%;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    padding-top: 3px;
+}
+/* Show and affix the side nav when space allows it */
+
+@media (min-width: 992px) {
+    .bs-sidebar .nav > .active > ul { display: block; }
+
+    /* Widen the fixed sidebar */
+    .bs-sidebar.affix,
+    .bs-sidebar.affix-bottom { width: 213px; }
+
+    .bs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 80px;
+    }
+
+    .bs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+
+    .bs-sidebar.affix-bottom .bs-sidenav,
+    .bs-sidebar.affix .bs-sidenav {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-sidebar.affix-bottom,
+    .bs-sidebar.affix { width: 263px; }
+}

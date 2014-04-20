@@ -1,0 +1,18 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.Helpers;
+
+@{
+    string data = string.Concat(@"{ ""key"": """, this.ViewBag.Key, @"""  }");
+}
+
+@if (!this.ViewBag.IsSubscribed)
+{
+    <li class="">
+        @(this.Html.AjaxLinkModalWindow("Subscribe", this.Url.Action("Subscribe", "Subscription"), "subscribe-modal", "user-account-control", "", "fa fa-users pull-right", @data))
+    </li>
+}
+else
+{
+    <li class="">
+        @(this.Html.AjaxLinkModalWindow("Unsubscribe", this.Url.Action("Unsubscribe", "Subscription"), "unsubscribe-modal", "user-account-control", "", "fa fa-frown-o pull-right", @data))
+    </li>
+}

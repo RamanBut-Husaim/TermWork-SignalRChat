@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row navbar-margin">
+    <div class="col-md-3">
+        @{this.Html.RenderAction("NavigationBar", "Account");}
+    </div>
+    <div id="user-admin-list" class="col-md-9">
+        <h1>Users</h1>
+        @{this.Html.RenderAction("UserList", "Account");}
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/account/admin/adminactions.js"></script>
+}
+

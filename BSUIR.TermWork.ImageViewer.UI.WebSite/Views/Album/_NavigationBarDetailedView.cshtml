@@ -1,0 +1,11 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Album
+
+@model AlbumDetailedViewModel
+           
+<li class="active">
+    <a href="@Url.Action("Index", "Image", new { key = ViewBag.Key, albumKey = Model.Key })">@Model.Name</a>
+    <ul class="nav">
+        <li class=""><a>Image number: @Model.ImageNumber</a></li>
+        <li class=""><a>Creation date: @Model.CreationDate.ToShortDateString()</a></li>
+    </ul>
+</li>

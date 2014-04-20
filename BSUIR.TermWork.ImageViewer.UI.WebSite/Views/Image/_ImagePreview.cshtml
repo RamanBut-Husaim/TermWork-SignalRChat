@@ -1,0 +1,12 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Image;
+
+@model ImagePreviewViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <img class="img-responsive" src="@Model.Content" alt="@Model.Name" />
+    </div>
+    <hr class="album-item-divider"/>
+    @{this.Html.RenderAction("Comments", "Comment", new { key = ViewBag.Key, albumKey = ViewBag.AlbumKey, imageKey = ViewBag.ImageKey });}
+</div>
+

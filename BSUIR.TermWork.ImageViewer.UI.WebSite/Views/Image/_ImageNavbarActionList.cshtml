@@ -1,0 +1,21 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.Helpers;
+
+@{
+    string data = string.Concat(@"{ ""imageKey"": """, this.ViewBag.ImageKey, @"""  }");
+}
+
+<li id="image-actions-list" class="active">
+    <a href="#">Actions</a>
+    <ul class="nav">
+        @if (!ViewBag.IsVisitor)
+        {
+            <li class="">
+                @Html.AjaxLinkModalWindow("Edit", this.Url.Action("EditImage", "Image"), "edit-image-modal", "user-account-control", "", "fa fa-cogs pull-right", @data)
+            </li>
+        }
+        else
+        {
+            this.Html.RenderAction("SubscribeOperation", "Subscription", new { key = ViewBag.Key });
+        }
+    </ul>
+</li>

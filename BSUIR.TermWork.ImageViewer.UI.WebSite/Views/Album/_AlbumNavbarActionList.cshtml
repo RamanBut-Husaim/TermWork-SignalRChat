@@ -1,0 +1,15 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.Helpers;
+
+<li id="album-actions-list" class="active">
+    <a href="#">Actions</a>
+    <ul class="nav">
+        @if (!ViewBag.IsVisitor)
+        {
+            <li class="">@Html.AjaxLinkModalWindow("Create", Url.Action("CreateAlbum", "Album"), "create-album-modal", "user-account-control", "", "fa fa-cogs pull-right", "")</li>
+        }
+        else
+        {
+            this.Html.RenderAction("SubscribeOperation", "Subscription", new { key = ViewBag.Key });
+        }
+    </ul>
+</li>

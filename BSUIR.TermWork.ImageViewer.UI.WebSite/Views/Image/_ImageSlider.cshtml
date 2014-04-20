@@ -1,0 +1,42 @@
+﻿@using BSUIR.TermWork.ImageViewer.Model
+@using BSUIR.TermWork.ImageViewer.UI.WebSite.Helpers
+@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Image
+
+@model IList<ImageSliderViewModel>
+
+@for (int i = 0; i < this.Model.Count; ++i)
+{
+    <div class="row well well-lg">
+        <div class="col-md-7">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 data-key="@(this.Model[i].Key)">@(this.Model[i].Name)</h3>
+                </div>
+                <div class="panel-body">
+                    <p align="justify">
+                        @(this.Model[i].Description)
+                    </p>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a href="@Url.Action("ViewImage","Image", new { key = ViewBag.Key, albumKey = ViewBag.AlbumKey, imageKey = @Model[i].Key })"
+                   class="btn btn-info">
+                    <i class="fa fa-play">
+                    </i> View
+                </a>
+                @if (!ViewBag.IsVisitor || this.User.IsInRole(RoleName.Administrator.ToString()))
+                {
+                    @(this.Html.AjaxModalWindow("Edit ", this.Url.Action("EditImage", "Image", new { imageKey = this.Model[i].Key }), "edit-image-modal", "user-account-control", "btn btn-info", "fa fa-edit", string.Concat(@"{ ""imageKey"": """, this.Model[i].Key, @"""  }")))
+                }
+            </div>
+            @if (!ViewBag.IsVisitor || this.User.IsInRole(RoleName.Administrator.ToString()))
+            {
+                @(this.Html.AjaxModalWindow("Remove ", this.Url.Action("RemoveImage", "Image", new { imageKey = this.Model[i].Key }), "remove-image-modal", "user-account-control", "btn btn-danger pull-right", "fa fa-crosshairs", string.Concat(@"{ ""imageKey"": """, this.Model[i].Key, @"""  }")))
+            }
+        </div>
+        <div class="col-md-5 pull-right">
+            <img class="img-rounded" src="@(this.Model[i].Content)" alt="@(this.Model[i].Name)" />
+        </div>
+    </div>
+    <hr class="album-item-divider" />
+}

@@ -1,0 +1,11 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Search;
+
+@model SearchFormViewModel
+
+@using (Html.BeginForm("PerformSearch", "Search", FormMethod.Post, new { id = "search-bar", @class = "navbar-form navbar-left" }))
+{
+    <div class="form-group">
+        @Html.TextBoxFor(p => p.SearchString, new { placeholder = "Search", @class="form-control", id = "search-input"})
+    </div>
+    <button id="search-bar-button" type="submit" class="btn btn-success btn-sm"><i class="fa fa-search pull-right fa-fw"></i>Search </button>
+}

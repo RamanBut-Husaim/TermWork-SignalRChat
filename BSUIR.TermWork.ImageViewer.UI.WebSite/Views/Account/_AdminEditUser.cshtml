@@ -1,0 +1,66 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Account
+
+@model AccountEditViewModel
+
+<div class="modal fade" id="admin-edit-user-modal" tabindex="-1" role="dialog" aria-labelledby="admin-edit-user-modal-header" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="admin-edit-user-modal-header">Edit User</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row col-md-8">
+                        @using (this.Html.BeginForm("AdminEditUser", "Account", new { userKey = Model.Key }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.HiddenFor(p => p.Key)
+                            <div class="form-group">
+                                <div class="col-md-offset-2">
+                                    @(this.Html.ValidationSummary(true))
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2">
+                                    <label for="labelEmail">Email</label>
+                                    <p>@(this.Html.ValidationMessageFor(p => p.Email))</p>
+                                    @Model.Email
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2">
+                                    <label for="inputFirstName">First Name</label>
+                                    <p>@(this.Html.ValidationMessageFor(p => p.FirstName))</p>
+                                    @(this.Html.TextBoxFor(p => p.FirstName, new { placeholder = "First Name", @class = "form-control", id = "inputFirstName" }))
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2">
+                                    <label for="inputLastName">Last Name</label>
+                                    <p>@(this.Html.ValidationMessageFor(p => p.LastName))</p>
+                                    @(this.Html.TextBoxFor(p => p.LastName, new { placeholder = "Last Name", @class = "form-control", id = "inputLastName" }))
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2">
+                                    <label for="labelRegistrationDate">Registration Date</label>
+                                    <p>@(this.Html.ValidationMessageFor(p => p.RegistrationDate))</p>
+                                    @Model.RegistrationDate.ToShortDateString()
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2">
+                                    <button class="btn btn-primary" type="submit"><i class="fa fa-cog fa-fw"></i> Edit</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

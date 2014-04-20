@@ -1,0 +1,24 @@
+﻿@using Antlr.Runtime.Tree
+@using BSUIR.TermWork.ImageViewer.UI.WebSite.Helpers;
+
+<li id="image-actions-list" class="active">
+    <a href="#">Actions</a>
+    <ul class="nav">
+        @if (!ViewBag.IsVisitor)
+        {
+            <li>
+                <a id="file-upload-link" href="#">
+                    Upload file
+                    @using (Html.BeginForm("UploadImage", "Image", FormMethod.Post, new { enctype = "multipart/form-data", @class = "upload-file-form", id = "file-upload-form" }))
+                    {
+                        <input id="file-uploader" name="uploadedImage" type="file" value="upload" />
+                    }
+                </a>
+            </li>
+        }
+        else
+        {
+            this.Html.RenderAction("SubscribeOperation", "Subscription", new { key = ViewBag.Key });
+        }
+    </ul>
+</li>

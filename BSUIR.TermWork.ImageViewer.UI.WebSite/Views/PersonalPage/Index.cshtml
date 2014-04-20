@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Personal Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row navbar-margin">
+    <div class="col-md-3">
+        @{Html.RenderAction("NavigationBar", "PersonalPage");}
+    </div>
+    <div id="user-album-list" class="col-md-9">
+        <h1>Albums</h1>
+        @{Html.RenderAction("ListAlbums", "Album", new { key = ViewBag.Key });}
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/personalpage/personalpage.js"></script>
+    <script type="text/javascript" src="~/Scripts/album/albumactions.js"></script>
+}
+
+
+

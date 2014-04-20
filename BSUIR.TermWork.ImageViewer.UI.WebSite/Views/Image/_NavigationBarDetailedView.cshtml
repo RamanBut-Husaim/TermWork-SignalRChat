@@ -1,0 +1,13 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Image
+
+@model ImageDetailedViewModel
+
+<li class="active">
+    <a href="#">@Model.Name</a>
+    <ul class="nav">
+        <li class=""><a href="@Url.Action("Index", "Image", new { key = ViewBag.Key, albumKey = ViewBag.AlbumKey })">Album: @Model.AlbumName</a></li>
+        <li class=""><a href="@Url.Action("Index", "PersonalPage", new { key = ViewBag.Key} )">User: @Model.UserName</a></li>
+        <li class=""><a>Rate: @Model.Rate</a></li>
+        <li class=""><a>Upload date: @Model.UploadDate.ToShortDateString()</a></li>
+    </ul>
+</li>

@@ -1,0 +1,44 @@
+﻿@using System.Globalization
+@using BSUIR.TermWork.ImageViewer.Model
+@using BSUIR.TermWork.ImageViewer.UI.Infrastructure.Authentication
+@using BSUIR.TermWork.ImageViewer.UI.WebSite.Helpers
+@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Comment
+
+@model IList<CommentListItemViewModel>
+
+<div id="user-comment-list" class="row">
+    <div class="col-md-12">
+        @for (int i = 0; i < @Model.Count; ++i)
+        {
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <a href="@Url.Action("Index", "PersonalPage", new { key = ViewBag.Key} )">@Model[i].UserName</a>
+                    @Model[i].CreationDate.ToLocalTime().ToString(CultureInfo.InvariantCulture)
+                </div>
+                <div class="panel-body">
+                    @Model[i].Content
+                    @if (User.IsInRole(RoleName.Administrator.ToString()) || User.IsInRole(RoleName.Moderator.ToString()))
+                    {
+                         @(this.Html.AjaxModalWindow("Remove ", this.Url.Action("RemoveComment", "Comment",
+                          new { key = ViewBag.Key, albumKey = ViewBag.AlbumKey, imageKey = ViewBag.ImageKey, commentKey = @Model[i].Key }),
+                          "remove-comment-modal",
+                          "user-account-control",
+                          "btn btn-danger pull-right",
+                          "fa fa-crosshairs",
+                          string.Concat(@"{ ""commentKey"": """, this.Model[i].Key, @"""  }")))
+                    }
+            </div>
+        </div>
+        <hr class="comment-item-divider" />
+        }
+    </div>
+    <div class="btn-group">
+        @(this.Html.AjaxModalWindow("Leave comment ", this.Url.Action("CreateComment", "Comment",
+              new { key = ViewBag.Key, albumKey = ViewBag.AlbumKey, imageKey = ViewBag.ImageKey }),
+              "create-comment-modal",
+              "user-account-control",
+              "btn btn-info",
+              "fa fa-edit",
+              ""))
+    </div>
+</div>

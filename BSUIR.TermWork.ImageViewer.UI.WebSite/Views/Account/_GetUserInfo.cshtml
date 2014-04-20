@@ -1,0 +1,50 @@
+﻿@using BSUIR.TermWork.ImageViewer.Resources;
+@using BSUIR.TermWork.ImageViewer.UI.Infrastructure.Authentication
+@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Account;
+@using BSUIR.TermWork.ImageViewer.UI.WebSite.Helpers;
+
+@model AccountInfoViewModel
+@{
+    var userIdentity = User.Identity as CustomIdentity;
+    string personalPageUrl = userIdentity == null 
+        ? "#"
+        : Url.Action("Index", "PersonalPage", new { key = userIdentity.Id });
+}
+<li>
+    <a class="user-data shift-left" href="@personalPageUrl">@(this.Model.FirstName) @(this.Model.LastName) </a>
+</li>
+<div class="navbar-form navbar-right" >
+    @if (this.Request.IsAuthenticated)
+    {
+        using (this.Html.BeginForm("SignOut", "Account", FormMethod.Get, new { @class = "navbar-form pull-right btn-group", style = "margin-top: 0px;" }))
+        {
+            @(this.Html.AjaxModalWindow("Edit ",
+                  this.Url.Action("EditUser", "Account",
+                      new { key = this.Model.Key }),
+                  "edit-user-modal",
+                  "user-account-control",
+                  "btn btn-primary btn-sm",
+                  "fa fa-edit fa-fw",
+                  string.Concat(@"{ ""key"": """, this.Model.Key, @"""  }")))
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-sign-out fa-fw"></i> @Resources.Account_SignOut</button>
+        }
+    }
+    else
+    {
+        <div class="btn-group">
+            @(this.Html.AjaxModalWindow(Resources.Account_SignIn,
+                  this.Url.Action("SignIn", "Account"),
+                  "sign-in-modal", "user-account-control",
+                  "btn btn-primary btn-sm",
+                  "fa fa-sign-in fa-fw",
+                  ""))
+            @(this.Html.AjaxModalWindow(Resources.Account_Register,
+                  this.Url.Action("Register", "Account"),
+                  "register-modal",
+                  "user-account-control",
+                  "btn btn-primary btn-sm",
+                  "fa fa-user fa-fw",
+                  ""))
+        </div>
+    }
+</div>
