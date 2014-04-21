@@ -1,14 +1,31 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="AlbumValidator.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The album validator.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 
 using BSUIR.TermWork.ImageViewer.Model;
 using BSUIR.TermWork.ImageViewer.Services.Contracts.Exceptions;
 
 namespace BSUIR.TermWork.ImageViewer.Services.Validators
 {
+    /// <summary>
+    /// The album validator.
+    /// </summary>
     internal sealed class AlbumValidator : EntityValidator<Album>
     {
-        #region Overrides of EntityValidator<Album>
+        #region Constructors and Destructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AlbumValidator"/> class.
+        /// </summary>
         public AlbumValidator()
         {
             this.RegisterProperty(p => p.Key, this.ValidateKey);
@@ -18,6 +35,18 @@ namespace BSUIR.TermWork.ImageViewer.Services.Validators
             this.RegisterProperty(p => p.CreationDate, this.ValidateCreationDate);
         }
 
+        #endregion
+
+        #region Public Methods and Operators
+
+        /// <summary>
+        /// The validate.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        /// <exception cref="ArgumentNullException">
+        /// </exception>
         public override void Validate(Album entity)
         {
             if (entity == null)
@@ -32,24 +61,29 @@ namespace BSUIR.TermWork.ImageViewer.Services.Validators
             this.ValidateDescription(entity.Description);
         }
 
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// The validate album name.
+        /// </summary>
+        /// <param name="name">
+        /// The name.
+        /// </param>
         private void ValidateAlbumName(string name)
         {
             this.ValidateName(name, "Name", Album.MaxLengthFor.Name);
         }
 
-        private void ValidateDescription(string description)
-        {
-            this.ValidateName(description, "Description", Album.MaxLengthFor.Description);
-        }
-
-        private void ValidateImageNumber(int imageCount)
-        {
-            if (imageCount < 0)
-            {
-                throw new AlbumValidationException("Image count cannot be below zero.");
-            }
-        }
-
+        /// <summary>
+        /// The validate creation date.
+        /// </summary>
+        /// <param name="creationDate">
+        /// The creation date.
+        /// </param>
+        /// <exception cref="AlbumValidationException">
+        /// </exception>
         private void ValidateCreationDate(DateTime creationDate)
         {
             if (creationDate <= Album.MaxLengthFor.MinSqlDateTime)
@@ -58,12 +92,54 @@ namespace BSUIR.TermWork.ImageViewer.Services.Validators
             }
         }
 
+        /// <summary>
+        /// The validate description.
+        /// </summary>
+        /// <param name="description">
+        /// The description.
+        /// </param>
+        private void ValidateDescription(string description)
+        {
+            this.ValidateName(description, "Description", Album.MaxLengthFor.Description);
+        }
+
+        /// <summary>
+        /// The validate image number.
+        /// </summary>
+        /// <param name="imageCount">
+        /// The image count.
+        /// </param>
+        /// <exception cref="AlbumValidationException">
+        /// </exception>
+        private void ValidateImageNumber(int imageCount)
+        {
+            if (imageCount < 0)
+            {
+                throw new AlbumValidationException("Image count cannot be below zero.");
+            }
+        }
+
+        /// <summary>
+        /// The validate name.
+        /// </summary>
+        /// <param name="name">
+        /// The name.
+        /// </param>
+        /// <param name="fieldName">
+        /// The field name.
+        /// </param>
+        /// <param name="fieldLength">
+        /// The field length.
+        /// </param>
+        /// <exception cref="AlbumValidationException">
+        /// </exception>
         private void ValidateName(string name, string fieldName, int fieldLength)
         {
             if (string.IsNullOrEmpty(name))
             {
                 throw new AlbumValidationException(fieldName + " is empty.");
             }
+
             if (name.Length > fieldLength)
             {
                 throw new AlbumValidationException(fieldName + " is too long!");

@@ -1,13 +1,30 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="AlbumMap.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The album map.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Data.Entity.ModelConfiguration;
 
 using BSUIR.TermWork.ImageViewer.Model;
 
 namespace BSUIR.TermWork.ImageViewer.Data.EF.Mapping
 {
+    /// <summary>
+    /// The album map.
+    /// </summary>
     internal sealed class AlbumMap : EntityTypeConfiguration<Album>
     {
         #region Constructors and Destructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AlbumMap"/> class.
+        /// </summary>
         public AlbumMap()
         {
             this.HasKey(p => p.Key);

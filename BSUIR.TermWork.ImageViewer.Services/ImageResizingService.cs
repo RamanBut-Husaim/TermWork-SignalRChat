@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ImageResizingService.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The image resizing service.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 using System.IO;
 
 using BSUIR.TermWork.ImageViewer.Services.Contracts;
@@ -7,8 +18,30 @@ using ImageResizer;
 
 namespace BSUIR.TermWork.ImageViewer.Services
 {
+    /// <summary>
+    /// The image resizing service.
+    /// </summary>
     public sealed class ImageResizingService : IImageResizingService
     {
+        #region Public Methods and Operators
+
+        /// <summary>
+        /// The resize image.
+        /// </summary>
+        /// <param name="source">
+        /// The source.
+        /// </param>
+        /// <param name="width">
+        /// The width.
+        /// </param>
+        /// <param name="height">
+        /// The height.
+        /// </param>
+        /// <returns>
+        /// The <see cref="byte[]"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// </exception>
         public byte[] ResizeImage(byte[] source, int width, int height)
         {
             byte[] result = null;
@@ -16,6 +49,7 @@ namespace BSUIR.TermWork.ImageViewer.Services
             {
                 throw new ArgumentNullException("source");
             }
+
             using (var sourceStream = new MemoryStream(source.Length))
             {
                 sourceStream.Write(source, 0, source.Length);
@@ -29,8 +63,11 @@ namespace BSUIR.TermWork.ImageViewer.Services
                     ImageBuilder.Current.Build(sourceStream, destinationStream, settings);
                     result = destinationStream.ToArray();
                 }
+
                 return result;
             }
         }
+
+        #endregion
     }
 }

@@ -15,7 +15,8 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Configuration
             builder.RegisterInstance((IValidatorFactory)ValidatorFactory.Instance).ExternallyOwned();
             builder.Register(c => c.Resolve<IValidatorFactory>().BuildEntityValidator<User>());
             builder.Register(c => c.Resolve<IValidatorFactory>().BuildEntityValidator<Role>());
-            builder.Register(c => c.Resolve<IValidatorFactory>().BuildEntityValidator<AccessRight>());
+            builder.Register(
+                c => c.Resolve<IValidatorFactory>().BuildEntityValidator<AccessRight>());
             builder.Register(c => c.Resolve<IValidatorFactory>().BuildEntityValidator<Profile>());
             builder.Register(c => c.Resolve<IValidatorFactory>().BuildEntityValidator<Album>());
             builder.Register(c => c.Resolve<IValidatorFactory>().BuildEntityValidator<Image>());

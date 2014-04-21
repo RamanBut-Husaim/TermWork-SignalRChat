@@ -1,4 +1,13 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="InitializeImageViewerIfModelChanges.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The initialize image viewer if model changes.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 
@@ -7,20 +16,40 @@ using BSUIR.TermWork.ImageViewer.Shared;
 
 namespace BSUIR.TermWork.ImageViewer.Data.EF.Initialization
 {
-    internal sealed class InitializeImageViewerIfModelChanges : DropCreateDatabaseIfModelChanges<ImageViewerContext>
+    /// <summary>
+    ///     The initialize image viewer if model changes.
+    /// </summary>
+    internal sealed class InitializeImageViewerIfModelChanges :
+        DropCreateDatabaseIfModelChanges<ImageViewerContext>
     {
-        #region Overrides of DropCreateDatabaseIfModelChanges<ImageViewerContext>
+        #region Methods
 
+        /// <summary>
+        /// The seed.
+        /// </summary>
+        /// <param name="context">
+        /// The context.
+        /// </param>
         protected override void Seed(ImageViewerContext context)
         {
-            #region AccessRights
-
-            var accessRight01 = new AccessRight(AccessRightName.UploadImage, AccessRightName.UploadImage.ToString());
-            var accessRight02 = new AccessRight(AccessRightName.RemoveImage, AccessRightName.RemoveImage.ToString());
-            var accessRight03 = new AccessRight(AccessRightName.MakeComment, AccessRightName.MakeComment.ToString());
-            var accessRight04 = new AccessRight(AccessRightName.RemoveComment, AccessRightName.RemoveComment.ToString());
-            var accessRight05 = new AccessRight(AccessRightName.Subscribe, AccessRightName.Subscribe.ToString());
-            var accessRight06 = new AccessRight(AccessRightName.RemoveUser, AccessRightName.RemoveUser.ToString());
+            var accessRight01 = new AccessRight(
+                AccessRightName.UploadImage, 
+                AccessRightName.UploadImage.ToString());
+            var accessRight02 = new AccessRight(
+                AccessRightName.RemoveImage, 
+                AccessRightName.RemoveImage.ToString());
+            var accessRight03 = new AccessRight(
+                AccessRightName.MakeComment, 
+                AccessRightName.MakeComment.ToString());
+            var accessRight04 = new AccessRight(
+                AccessRightName.RemoveComment, 
+                AccessRightName.RemoveComment.ToString());
+            var accessRight05 = new AccessRight(
+                AccessRightName.Subscribe, 
+                AccessRightName.Subscribe.ToString());
+            var accessRight06 = new AccessRight(
+                AccessRightName.RemoveUser, 
+                AccessRightName.RemoveUser.ToString());
 
             context.Set<AccessRight>().Add(accessRight01);
             context.Set<AccessRight>().Add(accessRight02);
@@ -30,55 +59,48 @@ namespace BSUIR.TermWork.ImageViewer.Data.EF.Initialization
             context.Set<AccessRight>().Add(accessRight06);
             context.SaveChanges();
 
-            #endregion
-
-            #region Roles
+            
 
             var role01 = new Role(RoleName.Administrator, RoleName.Administrator.ToString())
-                         {
-                             AccessRights =
-                                 new Collection
-                                 <AccessRight>
-                                 {
-                                     accessRight01,
-                                     accessRight02,
-                                     accessRight03,
-                                     accessRight04,
-                                     accessRight05,
-                                     accessRight06
-                                 }
-                         };
+                {
+                    AccessRights =
+                        new Collection<AccessRight>
+                            {
+                                accessRight01, 
+                                accessRight02, 
+                                accessRight03, 
+                                accessRight04, 
+                                accessRight05, 
+                                accessRight06
+                            }
+                };
             var role02 = new Role(RoleName.RegisteredUser, RoleName.RegisteredUser.ToString())
-                         {
-                             AccessRights =
-                                 new Collection
-                                 <AccessRight>
-                                 {
-                                     accessRight01,
-                                     accessRight02,
-                                     accessRight03,
-                                     accessRight05
-                                 }
-                         };
+                {
+                    AccessRights =
+                        new Collection<AccessRight>
+                            {
+                                accessRight01, 
+                                accessRight02, 
+                                accessRight03, 
+                                accessRight05
+                            }
+                };
             var role03 = new Role(RoleName.UnregisteredUser, RoleName.UnregisteredUser.ToString())
-                         {
-                             AccessRights =
-                                 new Collection
-                                 <AccessRight>
-                                 ()
-                         };
+                {
+                    AccessRights = new Collection<AccessRight>()
+                };
             var role04 = new Role(RoleName.Moderator, RoleName.Moderator.ToString())
-                         {
-                             AccessRights =
-                                 new Collection<AccessRight>
-                                 {
-                                     accessRight01,
-                                     accessRight02,
-                                     accessRight03,
-                                     accessRight04,
-                                     accessRight05
-                                 }
-                         };
+                {
+                    AccessRights =
+                        new Collection<AccessRight>
+                            {
+                                accessRight01, 
+                                accessRight02, 
+                                accessRight03, 
+                                accessRight04, 
+                                accessRight05
+                            }
+                };
             var user = new User("halford@gmail.com");
             user.PasswordSalt = CryptoHelper.GenerateSalt(User.MaxLengthFor.PasswordSalt);
             user.PasswordHash = CryptoHelper.ComputePasswordHash("passwordd", user.PasswordSalt);
@@ -109,15 +131,15 @@ namespace BSUIR.TermWork.ImageViewer.Data.EF.Initialization
             album02.ImageNumber = 0;
 
             var subscriptionType01 = new SubscriptionType
-                                     {
-                                         Name = SubscriptionName.Album,
-                                         Description = SubscriptionName.Album.ToString()
-                                     };
+                {
+                    Name = SubscriptionName.Album, 
+                    Description = SubscriptionName.Album.ToString()
+                };
             var subscriptionType02 = new SubscriptionType
-                                     {
-                                         Name = SubscriptionName.Image,
-                                         Description = SubscriptionName.Image.ToString()
-                                     };
+                {
+                    Name = SubscriptionName.Image, 
+                    Description = SubscriptionName.Image.ToString()
+                };
 
             context.Set<Role>().Add(role01);
             context.Set<Role>().Add(role02);
@@ -130,7 +152,7 @@ namespace BSUIR.TermWork.ImageViewer.Data.EF.Initialization
             context.Set<SubscriptionType>().Add(subscriptionType01);
             context.Set<SubscriptionType>().Add(subscriptionType02);
 
-            #endregion
+            
 
             base.Seed(context);
         }

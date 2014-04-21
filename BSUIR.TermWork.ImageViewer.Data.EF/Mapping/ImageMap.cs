@@ -1,11 +1,30 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ImageMap.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The image map.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Data.Entity.ModelConfiguration;
 
 using BSUIR.TermWork.ImageViewer.Model;
 
 namespace BSUIR.TermWork.ImageViewer.Data.EF.Mapping
 {
+    /// <summary>
+    /// The image map.
+    /// </summary>
     internal sealed class ImageMap : EntityTypeConfiguration<Image>
     {
+        #region Constructors and Destructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageMap"/> class.
+        /// </summary>
         public ImageMap()
         {
             this.HasKey(p => p.Key);
@@ -32,5 +51,7 @@ namespace BSUIR.TermWork.ImageViewer.Data.EF.Mapping
                         m.ToTable("TagImage");
                     });
         }
+
+        #endregion
     }
 }

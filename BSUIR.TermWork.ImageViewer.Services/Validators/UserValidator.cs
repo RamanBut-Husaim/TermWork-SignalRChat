@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="UserValidator.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The user validator.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 using System.Text.RegularExpressions;
 
 using BSUIR.TermWork.ImageViewer.Model;
@@ -6,10 +17,16 @@ using BSUIR.TermWork.ImageViewer.Services.Contracts.Exceptions;
 
 namespace BSUIR.TermWork.ImageViewer.Services.Validators
 {
+    /// <summary>
+    /// The user validator.
+    /// </summary>
     internal sealed class UserValidator : EntityValidator<User>
     {
-        #region Overrides of EntityValidator<User>
+        #region Constructors and Destructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserValidator"/> class.
+        /// </summary>
         public UserValidator()
         {
             this.RegisterProperty(p => p.Key, this.ValidateKey);
@@ -17,25 +34,51 @@ namespace BSUIR.TermWork.ImageViewer.Services.Validators
             this.RegisterProperty(p => p.PasswordHash, this.ValidatePassword);
         }
 
+        #endregion
+
+        #region Public Methods and Operators
+
+        /// <summary>
+        /// The validate.
+        /// </summary>
+        /// <param name="user">
+        /// The user.
+        /// </param>
+        /// <exception cref="ArgumentNullException">
+        /// </exception>
         public override void Validate(User user)
         {
             if (user == null)
             {
                 throw new ArgumentNullException("user");
             }
+
             this.ValidateKey(user.Key);
             this.ValidateEmail(user.Email);
             this.ValidatePassword(user.PasswordHash);
         }
 
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// The validate email.
+        /// </summary>
+        /// <param name="email">
+        /// The email.
+        /// </param>
+        /// <exception cref="UserValidationException">
+        /// </exception>
         private void ValidateEmail(string email)
         {
             if (string.IsNullOrEmpty(email))
             {
                 throw new UserValidationException("The email property is null or empty.");
             }
+
             var emailValidation = new Regex(
-                User.MaxLengthFor.EmailValidation,
+                User.MaxLengthFor.EmailValidation, 
                 RegexOptions.IgnoreCase);
             if (!emailValidation.IsMatch(email))
             {
@@ -45,6 +88,14 @@ namespace BSUIR.TermWork.ImageViewer.Services.Validators
             }
         }
 
+        /// <summary>
+        /// The validate password.
+        /// </summary>
+        /// <param name="password">
+        /// The password.
+        /// </param>
+        /// <exception cref="UserValidationException">
+        /// </exception>
         private void ValidatePassword(string password)
         {
             if (string.IsNullOrEmpty(password))

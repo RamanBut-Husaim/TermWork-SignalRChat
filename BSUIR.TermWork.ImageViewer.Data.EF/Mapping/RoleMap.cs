@@ -1,13 +1,30 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="RoleMap.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The role map.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Data.Entity.ModelConfiguration;
 
 using BSUIR.TermWork.ImageViewer.Model;
 
 namespace BSUIR.TermWork.ImageViewer.Data.EF.Mapping
 {
+    /// <summary>
+    /// The role map.
+    /// </summary>
     internal sealed class RoleMap : EntityTypeConfiguration<Role>
     {
         #region Constructors and Destructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RoleMap"/> class.
+        /// </summary>
         public RoleMap()
         {
             this.HasKey(p => p.Key);

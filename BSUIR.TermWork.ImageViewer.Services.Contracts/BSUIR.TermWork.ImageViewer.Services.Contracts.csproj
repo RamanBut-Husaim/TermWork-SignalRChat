@@ -56,9 +56,11 @@
     <Compile Include="Exceptions\UserNotFoundException.cs" />
     <Compile Include="Exceptions\UserValidationException.cs" />
     <Compile Include="ICommentService.cs" />
+    <Compile Include="IFriendshipService.cs" />
     <Compile Include="IImageAlbumService.cs" />
     <Compile Include="IImageResizingService.cs" />
     <Compile Include="IMembershipService.cs" />
+    <Compile Include="IMessageService.cs" />
     <Compile Include="ISearchService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="ISubscriptionService.cs" />

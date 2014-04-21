@@ -47,6 +47,7 @@
     <Compile Include="CommentService.cs" />
     <Compile Include="Extensions\StringComparator.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="FriendshipService.cs" />
     <Compile Include="ImageAlbumService.cs" />
     <Compile Include="ImageResizingService.cs" />
     <Compile Include="MembershipService.cs" />

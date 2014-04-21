@@ -1,4 +1,15 @@
-﻿using System.Collections.Generic;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="StringExtensions.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The string extensions.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -6,8 +17,37 @@ using BSUIR.TermWork.ImageViewer.Model;
 
 namespace BSUIR.TermWork.ImageViewer.Services.Extensions
 {
+    /// <summary>
+    /// The string extensions.
+    /// </summary>
     public static class StringExtensions
     {
+        #region Public Methods and Operators
+
+        /// <summary>
+        /// The remove duplicates.
+        /// </summary>
+        /// <param name="input">
+        /// The input.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IList"/>.
+        /// </returns>
+        public static IList<string> RemoveDuplicates(this IEnumerable<string> input)
+        {
+            IList<string> result = input.Distinct(StringComparator.Instance).ToList();
+            return result;
+        }
+
+        /// <summary>
+        /// The split words.
+        /// </summary>
+        /// <param name="searchQuery">
+        /// The search query.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IList"/>.
+        /// </returns>
         public static IList<string> SplitWords(this string searchQuery)
         {
             IList<string> result = new List<string>();
@@ -28,10 +68,6 @@ namespace BSUIR.TermWork.ImageViewer.Services.Extensions
             return result;
         }
 
-        public static IList<string> RemoveDuplicates(this IEnumerable<string> input)
-        {
-            IList<string> result = input.Distinct(StringComparator.Instance).ToList();
-            return result;
-        }
+        #endregion
     }
 }

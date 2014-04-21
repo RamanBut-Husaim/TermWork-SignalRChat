@@ -1,25 +1,43 @@
-﻿using System.Data.Entity;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ImageViewerContext.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The image viewer context.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Data.Entity;
 
 using BSUIR.TermWork.ImageViewer.Data.EF.Initialization;
 using BSUIR.TermWork.ImageViewer.Data.EF.Mapping;
-using BSUIR.TermWork.ImageViewer.Model;
 
 namespace BSUIR.TermWork.ImageViewer.Data.EF
 {
+    /// <summary>
+    /// The image viewer context.
+    /// </summary>
     public sealed class ImageViewerContext : DbContextBase
     {
         #region Constructors and Destructors
 
+        /// <summary>
+        /// Initializes static members of the <see cref="ImageViewerContext"/> class.
+        /// </summary>
         static ImageViewerContext()
         {
             Database.SetInitializer(
-                //new DropCreateDatabaseIfModelChanges<ImageViewerContext>()
-                //new InitializeImageViewerAlways()
+                // new DropCreateDatabaseIfModelChanges<ImageViewerContext>()
+                // new InitializeImageViewerAlways()
                 new InitializeImageViewerIfModelChanges());
         }
 
-        public ImageViewerContext()
-            : base("ImageViewer")
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageViewerContext"/> class.
+        /// </summary>
+        public ImageViewerContext() : base("ImageViewer")
         {
             this.Configuration.LazyLoadingEnabled = true;
             this.Configuration.ProxyCreationEnabled = true;
@@ -29,6 +47,12 @@ namespace BSUIR.TermWork.ImageViewer.Data.EF
 
         #region Methods
 
+        /// <summary>
+        /// The on model creating.
+        /// </summary>
+        /// <param name="modelBuilder">
+        /// The model builder.
+        /// </param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UserMap());
