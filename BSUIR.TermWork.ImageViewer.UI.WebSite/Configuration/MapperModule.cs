@@ -21,6 +21,9 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Configuration
                    .As<ISubscriptionMapper>()
                    .InstancePerHttpRequest();
             builder.RegisterType<SearchMapper>().As<ISearchMapper>().InstancePerHttpRequest();
+            builder.RegisterType<FriendshipMapper>()
+                   .As<IFriendshipMapper>()
+                   .InstancePerHttpRequest();
             base.Load(builder);
         }
 

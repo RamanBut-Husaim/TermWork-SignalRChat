@@ -33,7 +33,7 @@ namespace BSUIR.TermWork.ImageViewer.Data.EF.Repositories.Factory
         /// </returns>
         public IRepository<FriendshipRequest, int> Build(UnitOfWork unitOfWork)
         {
-            return new Repository<FriendshipRequest, int>(unitOfWork.Context);
+            return new FriendshipRequestRepository(unitOfWork.Context);
         }
 
         #endregion

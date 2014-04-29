@@ -26,6 +26,9 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Configuration
                    .As<ISubscriptionService>()
                    .InstancePerHttpRequest();
             builder.RegisterType<SearchService>().As<ISearchService>().InstancePerHttpRequest();
+            builder.RegisterType<FriendshipService>()
+                   .As<IFriendshipService>()
+                   .InstancePerHttpRequest();
             base.Load(builder);
         }
 

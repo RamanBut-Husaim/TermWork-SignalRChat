@@ -1,0 +1,18 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.Helpers;
+
+@{
+    string data = string.Concat(@"{ ""key"": """, this.ViewBag.Key, @"""  }");
+}
+
+@if (!ViewBag.IsFriend)
+{
+    <li class="">
+        @(this.Html.AjaxLinkModalWindow("Make friends", this.Url.Action("SendFriendshipRequest", "Friendship"), "friendship-request-modal", "user-account-control", "", "fa fa-sun-0 pull-right", @data))
+    </li>
+}
+else
+{
+    <li class="">
+        @(this.Html.AjaxLinkModalWindow("Break friendship", this.Url.Action("RemoveFriend", "Friendship"), "remove-friend-modal", "user-account-control", "", "fa fa-scissors pull-right", @data))
+    </li>
+}

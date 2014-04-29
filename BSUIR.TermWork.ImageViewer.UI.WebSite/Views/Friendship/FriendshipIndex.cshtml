@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Friends";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row navbar-margin">
+    <div class="col-md-3">
+        @{Html.RenderAction("NavigationBar", "Friendship");}
+    </div>
+    <div id="friendship-list" class="col-md-9">
+        <h1>Friendship Requests</h1>
+        @{ Html.RenderAction("FriendshipRequestList", "Friendship");}
+    </div>
+</div>
+
+@section scripts 
+{
+    <script type="text/javascript" src="~/Scripts/friendship/friendshipactions.js"></script>  
+}

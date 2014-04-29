@@ -1,4 +1,7 @@
-﻿using BSUIR.TermWork.ImageViewer.Model;
+﻿using System.Collections;
+using System.Collections.Generic;
+
+using BSUIR.TermWork.ImageViewer.Model;
 
 namespace BSUIR.TermWork.ImageViewer.Services.Contracts
 {
@@ -10,6 +13,12 @@ namespace BSUIR.TermWork.ImageViewer.Services.Contracts
 
         void DeclineRequest(User sender, User receiver);
 
-        void RemoveFriend(User sender, User receiver);
+        void RemoveFriend(User firstFriend, User secondFriend);
+
+        IEnumerable<FriendshipRequest> GetUnconfirmedRequests(User receiver);
+
+        IEnumerable<Profile> GetFriends(User user);
+
+        IEnumerable<Profile> GetFriends(int userKey);
     }
 }

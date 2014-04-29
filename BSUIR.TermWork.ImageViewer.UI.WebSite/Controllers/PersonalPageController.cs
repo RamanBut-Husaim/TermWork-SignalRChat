@@ -13,13 +13,16 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
     {
         private readonly ISubscriptionService _subscriptionService;
         private readonly IMembershipService _membershipService;
+        private readonly IFriendshipService _friendshipService;
 
         public PersonalPageController(
             ISubscriptionService subscriptionService,
-            IMembershipService membershipService)
+            IMembershipService membershipService,
+            IFriendshipService friendshipService)
         {
             this._subscriptionService = subscriptionService;
             this._membershipService = membershipService;
+            this._friendshipService = friendshipService;
         }
 
         [HttpGet]
@@ -28,6 +31,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
         public ActionResult Index(int? key)
         {
             this.UpdateSubscriptions(this._subscriptionService);
+            this.UpdateFriendsList(this._friendshipService);
             this.ReleaseUpToDateSubscriptions(this._membershipService, this._subscriptionService);
             try
             {

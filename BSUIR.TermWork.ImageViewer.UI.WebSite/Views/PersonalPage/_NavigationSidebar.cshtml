@@ -1,7 +1,10 @@
 ﻿<div class="bs-sidebar hidden-print affix" role="complementary">
     <ul class="nav bs-sidenav">
-        @{this.Html.RenderAction("AlbumHeaders", "Album", new { key = ViewBag.Key });}
-        @{this.Html.RenderAction("AlbumActions", "Album", new { key = ViewBag.Key });}
-        @{this.Html.RenderAction("Subscribers", "Subscription", new { key = ViewBag.Key });}
+        @{ Html.RenderAction("AlbumHeaders", "Album", new { key = ViewBag.Key });}
+        @{ Html.RenderAction("AlbumActions", "Album", new { key = ViewBag.Key });}
+        @{ Html.RenderAction("Subscribers", "Subscription", new { key = ViewBag.Key });}
+        @{ Html.RenderAction("OperationList", "Operation", new { key = ViewBag.Key }); }
+        @{ Html.RenderAction("NotificationList", "Notification", new { key = ViewBag.Key }); }
+        @{ Html.RenderAction("FriendsListNavbar", "Friendship", new { key = ViewBag.Key });}
     </ul>
 </div>

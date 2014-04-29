@@ -15,7 +15,8 @@ namespace BSUIR.TermWork.ImageViewer.Model
         private DateTime _lastSignOut;
         private DateTime _registrationDate;
         private ICollection<Subscription> _subscriptions;
-        private ICollection<FriendshipRequest> _friendshipRequests;
+        private ICollection<FriendshipRequest> _friendshipRequests; 
+        private ICollection<Friendship> _friends;
         private User _user;
 
         #endregion
@@ -90,6 +91,12 @@ namespace BSUIR.TermWork.ImageViewer.Model
         {
             get { return this._user; }
             set { this._user = value; }
+        }
+
+        public virtual ICollection<Friendship> Friends
+        {
+            get { return this._friends; }
+            set { this._friends = value; }
         }
 
         public virtual ICollection<FriendshipRequest> FriendshipRequests

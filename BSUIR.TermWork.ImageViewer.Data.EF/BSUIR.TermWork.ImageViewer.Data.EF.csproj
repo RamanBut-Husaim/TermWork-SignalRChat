@@ -85,6 +85,7 @@
     <Compile Include="Repositories\Factory\TagRepositoryBuilder.cs" />
     <Compile Include="Repositories\Factory\UserRepositoryBuilder.cs" />
     <Compile Include="Repositories\FriendshipRepository.cs" />
+    <Compile Include="Repositories\FriendshipRequestRepository.cs" />
     <Compile Include="Repositories\ImageRepository.cs" />
     <Compile Include="Repositories\ProfileRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />

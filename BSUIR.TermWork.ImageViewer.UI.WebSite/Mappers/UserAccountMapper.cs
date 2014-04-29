@@ -1,12 +1,12 @@
-﻿namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Mappers
+﻿using System;
+using System.Linq;
+
+using BSUIR.TermWork.ImageViewer.Model;
+using BSUIR.TermWork.ImageViewer.Shared;
+using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Account;
+
+namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Mappers
 {
-    using System;
-    using System.Linq;
-
-    using BSUIR.TermWork.ImageViewer.Model;
-    using BSUIR.TermWork.ImageViewer.Shared;
-    using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Account;
-
     public sealed class UserAccountMapper : IUserAccountMapper
     {
         private readonly IHashGenerator _hashGenerator;
@@ -78,8 +78,11 @@
             resultProfile.LastSignIn = DateTime.UtcNow;
             resultProfile.LastSignOut = DateTime.UtcNow;
             resultProfile.IsSignedIn = true;
-            resultUser.PasswordSalt = this._hashGenerator.GenerateSalt(User.MaxLengthFor.PasswordSalt);
-            resultUser.PasswordHash = this._hashGenerator.GetPasswordHash(viewModel.Password, resultUser.PasswordSalt);
+            resultUser.PasswordSalt =
+                this._hashGenerator.GenerateSalt(User.MaxLengthFor.PasswordSalt);
+            resultUser.PasswordHash = this._hashGenerator.GetPasswordHash(
+                viewModel.Password,
+                resultUser.PasswordSalt);
             return resultUser;
         }
 

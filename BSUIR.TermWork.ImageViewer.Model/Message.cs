@@ -3,7 +3,7 @@ using System.Data.SqlTypes;
 
 namespace BSUIR.TermWork.ImageViewer.Model
 {
-    public sealed class Message : Entity<int>
+    public class Message : Entity<int>
     {
         private string _text;
         private DateTime _sendDate;
@@ -43,19 +43,19 @@ namespace BSUIR.TermWork.ImageViewer.Model
             set { this._sendDate = value; }
         }
 
-        public Profile Sender
+        public virtual Profile Sender
         {
             get { return this._sender; }
             set { this._sender = value; }
         }
 
-        public Profile Receiver
+        public virtual Profile Receiver
         {
             get { return this._receiver; }
             set { this._receiver = value; }
         }
 
-        public Friendship Friendship
+        public virtual Friendship Friendship
         {
             get { return this._friendship; }
             set { this._friendship = value; }

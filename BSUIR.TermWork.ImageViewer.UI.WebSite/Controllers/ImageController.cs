@@ -24,7 +24,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
         private readonly IImageMapper _imageMapper;
         private readonly IMembershipService _membershipService;
         private readonly ISubscriptionService _subscriptionService;
-
+        private readonly IFriendshipService _friendshipService;
         #endregion
 
         #region Constructors and Destructors
@@ -33,12 +33,14 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
             IImageAlbumService imageAlbumService,
             IMembershipService membershipService,
             ISubscriptionService subscriptionService,
+            IFriendshipService friendshipService,
             IImageMapper imageMapper)
         {
             this._membershipService = membershipService;
             this._imageAlbumService = imageAlbumService;
             this._subscriptionService = subscriptionService;
             this._imageMapper = imageMapper;
+            this._friendshipService = friendshipService;
         }
 
         #endregion
@@ -241,6 +243,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
         public ActionResult Index(int? key)
         {
             this.UpdateSubscriptions(this._subscriptionService);
+            this.UpdateFriendsList(this._friendshipService);
             this.ReleaseUpToDateSubscriptions(this._membershipService, this._subscriptionService);
             try
             {
@@ -373,6 +376,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
         public ActionResult ViewImage(int? key, int? imageKey)
         {
             this.UpdateSubscriptions(this._subscriptionService);
+            this.UpdateFriendsList(this._friendshipService);
             this.ReleaseUpToDateSubscriptions(this._membershipService, this._subscriptionService);
 
             try

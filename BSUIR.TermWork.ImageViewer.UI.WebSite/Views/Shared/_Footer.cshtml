@@ -1,8 +1,9 @@
-﻿<footer>
+﻿@using System
+<footer>
     <div class="footer">
         <div class="container">
             <p class="credit">
-                &copy; BSUIR, FKSIS, Raman But-Husaim, 2013 ·
+                &copy; BSUIR, FKSIS, Raman But-Husaim, @DateTime.UtcNow.Year ·
                 <a href="@Url.Action("Privacy", "Home")">Privacy</a>
                 ·
                 <a href="@Url.Action("Terms", "Home")">Terms</a>

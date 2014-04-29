@@ -1,10 +1,10 @@
-﻿namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Mappers
+﻿using System;
+
+using BSUIR.TermWork.ImageViewer.Model;
+using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Search;
+
+namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Mappers
 {
-    using System;
-
-    using BSUIR.TermWork.ImageViewer.Model;
-    using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Search;
-
     public class SearchMapper : ISearchMapper
     {
         #region Implementation of ISearchMapper

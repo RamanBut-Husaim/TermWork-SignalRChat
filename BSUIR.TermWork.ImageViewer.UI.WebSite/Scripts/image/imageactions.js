@@ -10,7 +10,7 @@ $('#file-uploader').on('change', function() {
     $('#file-upload-form').submit();
 });
 
-$('#image-actions-list').on('click', '.ajax-link-modal-window', function () {
+$('#image-actions-list, #operation-actions-list').on('click', '.ajax-link-modal-window', function () {
     var element = $(this);
     var targetUrl = element.attr('data-target-url');
     

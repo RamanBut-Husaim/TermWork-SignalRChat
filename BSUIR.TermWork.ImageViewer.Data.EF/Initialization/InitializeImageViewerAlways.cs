@@ -150,6 +150,40 @@ namespace BSUIR.TermWork.ImageViewer.Data.EF.Initialization
             context.Set<SubscriptionType>().Add(subscriptionType01);
             context.Set<SubscriptionType>().Add(subscriptionType02);
 
+            var user01 = new User("dickinson@gmail.com");
+            user01.PasswordSalt = CryptoHelper.GenerateSalt(User.MaxLengthFor.PasswordSalt);
+            user01.PasswordHash = CryptoHelper.ComputePasswordHash("passwordd", user01.PasswordSalt);
+            user01.UserRoles.Add(role01);
+            user01.UserRoles.Add(role02);
+            user01.UserRoles.Add(role04);
+            var profile01 = new Profile(user01);
+            user01.UserProfile = profile01;
+            profile01.FirstName = "Bruce";
+            profile01.LastName = "Dickinson";
+            profile01.LastSignIn = DateTime.Now;
+            profile01.LastSignOut = DateTime.Now;
+            profile01.RegistrationDate = DateTime.Now;
+            profile01.IsSignedIn = false;
+
+            var album03 = new Album();
+            album03.CreationDate = DateTime.UtcNow;
+            album03.Owner = user01;
+            album03.Name = "The first one";
+            album03.Description = album03.Name;
+            album03.ImageNumber = 0;
+
+            var album04 = new Album();
+            album04.CreationDate = DateTime.UtcNow;
+            album04.Owner = user01;
+            album04.Name = "The second one";
+            album04.Description = album04.Name;
+            album04.ImageNumber = 0;
+
+            context.Set<User>().Add(user01);
+            context.Set<Profile>().Add(profile01);
+            context.Set<Album>().Add(album03);
+            context.Set<Album>().Add(album04);
+
             base.Seed(context);
         }
 

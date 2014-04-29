@@ -41,6 +41,9 @@ namespace BSUIR.TermWork.ImageViewer.Data.EF.Mapping
             this.HasMany(p => p.Subscriptions)
                 .WithRequired(p => p.Subscriber)
                 .WillCascadeOnDelete(false);
+            this.HasMany(p => p.Friends)
+                .WithRequired(p => p.FirstProfile)
+                .WillCascadeOnDelete(false);
             this.HasMany(p => p.FriendshipRequests)
                 .WithRequired(p => p.Sender)
                 .WillCascadeOnDelete(false);

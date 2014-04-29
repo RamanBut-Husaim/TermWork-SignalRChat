@@ -1,15 +1,13 @@
-﻿namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Mappers
+﻿using System;
+using System.IO;
+using System.Web;
+
+using BSUIR.TermWork.ImageViewer.Model;
+using BSUIR.TermWork.ImageViewer.UI.Infrastructure;
+using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Image;
+
+namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Mappers
 {
-    using System;
-    using System.IO;
-    using System.Web;
-
-    using BSUIR.TermWork.ImageViewer.Model;
-    using BSUIR.TermWork.ImageViewer.UI.Infrastructure;
-    using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Image;
-
-    using Microsoft.Ajax.Utilities;
-
     public class ImageMapper : IImageMapper
     {
         private readonly IImageConverter _imageConverter;
@@ -25,6 +23,7 @@
             {
                 throw new ArgumentNullException("image");
             }
+
             var result = new ImageSliderViewModel();
             result.Name = image.Name;
             result.Description = image.Description;
@@ -33,16 +32,16 @@
 
             try
             {
-                result.Content = 
-                    string.Format(
-                        "data:{0};base64,{1}", 
-                        image.ContentType, 
-                        this.GetImageThumbnailContent(image));
+                result.Content = string.Format(
+                    "data:{0};base64,{1}",
+                    image.ContentType,
+                    this.GetImageThumbnailContent(image));
             }
             catch (Exception ex)
             {
                 result.Content = string.Empty;
             }
+
             return result;
         }
 
@@ -52,22 +51,23 @@
             {
                 throw new ArgumentNullException("image");
             }
+
             var result = new ImagePreviewViewModel();
             result.Name = image.Name;
             result.Description = image.Description;
             result.Key = image.Key;
             try
             {
-                result.Content =
-                  string.Format(
-                      "data:{0};base64,{1}",
-                      image.ContentType,
-                      this.GetImageContent(image)); 
+                result.Content = string.Format(
+                    "data:{0};base64,{1}",
+                    image.ContentType,
+                    this.GetImageContent(image));
             }
             catch (Exception ex)
             {
                 result.Content = string.Empty;
             }
+
             return result;
         }
 
@@ -79,6 +79,7 @@
                 stream.Write(image.ImageContent.Thumbnail, 0, image.ImageContent.Thumbnail.Length);
                 result = this._imageConverter.ConvertToBase64(stream);
             }
+
             return result;
         }
 
@@ -90,6 +91,7 @@
                 stream.Write(image.ImageContent.Content, 0, image.ImageContent.Content.Length);
                 result = this._imageConverter.ConvertToBase64(stream);
             }
+
             return result;
         }
 
@@ -112,10 +114,12 @@
             {
                 throw new ArgumentNullException("image");
             }
+
             if (viewModel == null)
             {
                 throw new ArgumentNullException("viewModel");
             }
+
             image.Name = viewModel.Name;
             image.Description = viewModel.Description;
         }
@@ -126,6 +130,7 @@
             {
                 throw new ArgumentNullException("image");
             }
+
             var result = new ImageDetailedViewModel();
             result.Key = image.Key;
             result.Name = image.Name;
@@ -148,7 +153,7 @@
 
             var result = new Image();
             result.Extension = this.GetExtension(uploadedImage.FileName);
-            result.Name = uploadedImage.FileName.Replace(result.Extension, "");
+            result.Name = uploadedImage.FileName.Replace(result.Extension, string.Empty);
             result.ContentType = uploadedImage.ContentType;
             result.Rate = 0;
             result.UploadDate = DateTime.UtcNow;
@@ -170,6 +175,7 @@
                 fileBase.InputStream.CopyTo(memoryStream);
                 result.Content = memoryStream.ToArray();
             }
+
             return result;
         }
     }

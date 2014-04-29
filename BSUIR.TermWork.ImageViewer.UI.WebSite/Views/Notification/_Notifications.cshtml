@@ -1,0 +1,17 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Notification;
+
+@model NotificationCountViewModel
+<li id="notification-actions-list" class="active">
+    <a href="#">Notifications</a>
+    <ul class="nav">
+        @if (ViewBag.IsVisitor == false)
+        {
+           <li class="">
+               <a href="@(this.Url.Action("Index", "Friendship", new { key = ViewBag.Key }))">
+                   <span class="badge pull-right">@Model.Count</span>
+                   Friendship Requests
+               </a>
+            </li>
+        }
+    </ul>
+</li>

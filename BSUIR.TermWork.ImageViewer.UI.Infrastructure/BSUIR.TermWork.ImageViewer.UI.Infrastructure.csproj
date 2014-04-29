@@ -79,6 +79,7 @@
     <Compile Include="Authentication\UserInfo.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Filters\AjaxRequestOnlyFilter.cs" />
+    <Compile Include="Filters\FriendshipVerificationFilter.cs" />
     <Compile Include="Filters\SubscriptionVerificationFilter.cs" />
     <Compile Include="Filters\ViewBagPopulatorFilter.cs" />
     <Compile Include="IImageConverter.cs" />

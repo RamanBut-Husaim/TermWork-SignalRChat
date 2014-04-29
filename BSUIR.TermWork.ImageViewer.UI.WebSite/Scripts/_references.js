@@ -13,3 +13,4 @@
 /// <reference path="home/searchbar.js" />
 /// <reference path="account/admin/adminactions.js" />
 /// <reference path="jquery.signalr-2.0.3.js" />
+/// <reference path="friendship/friendshipactions.js" />

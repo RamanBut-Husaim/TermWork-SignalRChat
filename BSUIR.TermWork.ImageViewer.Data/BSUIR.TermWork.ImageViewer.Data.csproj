@@ -57,6 +57,7 @@
     <Compile Include="Repositories\Factory\IRepositoryFactory.cs" />
     <Compile Include="Repositories\IAlbumRepository.cs" />
     <Compile Include="Repositories\IFriendshipRepository.cs" />
+    <Compile Include="Repositories\IFriendshipRequestRepository.cs" />
     <Compile Include="Repositories\IImageRepository.cs" />
     <Compile Include="Repositories\IProfileRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />

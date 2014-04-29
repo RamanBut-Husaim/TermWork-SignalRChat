@@ -30,8 +30,8 @@ namespace BSUIR.TermWork.ImageViewer.Data.EF
         {
             Database.SetInitializer(
                 // new DropCreateDatabaseIfModelChanges<ImageViewerContext>()
-                // new InitializeImageViewerAlways()
-                new InitializeImageViewerIfModelChanges());
+                //new InitializeImageViewerAlways());
+            new InitializeImageViewerIfModelChanges());
         }
 
         /// <summary>

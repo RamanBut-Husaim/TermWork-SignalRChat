@@ -46,6 +46,7 @@
     <Compile Include="Exceptions\CommentValidationException.cs" />
     <Compile Include="Exceptions\DuplicateEmailException.cs" />
     <Compile Include="Exceptions\EntityValidationException.cs" />
+    <Compile Include="Exceptions\FriendshipServiceException.cs" />
     <Compile Include="Exceptions\ImageAlbumServiceException.cs" />
     <Compile Include="Exceptions\ImageValidationException.cs" />
     <Compile Include="Exceptions\MembershipServiceException.cs" />

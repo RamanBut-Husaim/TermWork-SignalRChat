@@ -169,8 +169,11 @@
     <Compile Include="Controllers\AlbumController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\FriendshipController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\NotificationController.cs" />
+    <Compile Include="Controllers\OperationController.cs" />
     <Compile Include="Controllers\PersonalPageController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SubscriptionController.cs" />
@@ -181,8 +184,10 @@
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Mappers\AlbumMapper.cs" />
     <Compile Include="Mappers\CommentMapper.cs" />
+    <Compile Include="Mappers\FriendshipMapper.cs" />
     <Compile Include="Mappers\IAlbumMapper.cs" />
     <Compile Include="Mappers\ICommentMapper.cs" />
+    <Compile Include="Mappers\IFriendshipMapper.cs" />
     <Compile Include="Mappers\IImageMapper.cs" />
     <Compile Include="Mappers\ImageMapper.cs" />
     <Compile Include="Mappers\ISearchMapper.cs" />
@@ -204,10 +209,15 @@
     <Compile Include="ViewModel\Album\AlbumListItemViewModel.cs" />
     <Compile Include="ViewModel\Comment\CommentCreateViewModel.cs" />
     <Compile Include="ViewModel\Comment\CommentListItemViewModel.cs" />
+    <Compile Include="ViewModel\Friendship\FriendRequestCreateViewModel.cs" />
+    <Compile Include="ViewModel\Friendship\FriendshipAnswerViewModel.cs" />
+    <Compile Include="ViewModel\Friendship\FriendshipRequestViewModel.cs" />
+    <Compile Include="ViewModel\Friendship\FriendViewModel.cs" />
     <Compile Include="ViewModel\Image\ImageDetailedViewModel.cs" />
     <Compile Include="ViewModel\Image\ImageEditViewModel.cs" />
     <Compile Include="ViewModel\Image\ImagePreviewViewModel.cs" />
     <Compile Include="ViewModel\Image\ImageSliderViewModel.cs" />
+    <Compile Include="ViewModel\Notification\NotificationCountViewModel.cs" />
     <Compile Include="ViewModel\Search\SearchFormViewModel.cs" />
     <Compile Include="ViewModel\Search\SearchResultViewModel.cs" />
     <Compile Include="ViewModel\Subscription\SubscriptionCreateViewModel.cs" />
@@ -308,6 +318,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\comment\commentactions.js" />
+    <Content Include="Scripts\friendship\friendshipactions.js" />
     <Content Include="Scripts\home\searchbar.js" />
     <Content Include="Scripts\image\image.js" />
     <Content Include="Scripts\image\imageactions.js" />
@@ -321,17 +332,12 @@
     <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="Scripts\jquery-2.1.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.10.3.js" />
-    <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
     <Content Include="Scripts\jquery.signalR-2.0.3.js" />
     <Content Include="Scripts\jquery.signalR-2.0.3.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\knockout-3.0.0.debug.js" />
-    <Content Include="Scripts\knockout-3.0.0.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\personalpage\personalpage.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -395,6 +401,17 @@
     <Content Include="Views\Account\_UserList.cshtml" />
     <Content Include="Views\Account\_NavbarUserList.cshtml" />
     <Content Include="Views\Account\_AdminEditUser.cshtml" />
+    <Content Include="Views\Operation\_FriendshipOperation.cshtml" />
+    <Content Include="Views\Friendship\_FriendshipRequest.cshtml" />
+    <Content Include="Views\Operation\_Operations.cshtml" />
+    <Content Include="Views\Notification\_Notifications.cshtml" />
+    <Content Include="Views\Friendship\FriendshipIndex.cshtml" />
+    <Content Include="Views\Friendship\_FriendshipNavbar.cshtml" />
+    <Content Include="Views\Friendship\_FriendshipRequestList.cshtml" />
+    <Content Include="Views\Friendship\_ConfirmFriendshipRequest.cshtml" />
+    <Content Include="Views\Friendship\_DeclineFriendshipRequest.cshtml" />
+    <Content Include="Views\Friendship\_FriendsListNavbar.cshtml" />
+    <Content Include="Views\Friendship\_RemoveFriend.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BSUIR.TermWork.ImageViewer.Data.EF\BSUIR.TermWork.ImageViewer.Data.EF.csproj">

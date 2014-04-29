@@ -1,0 +1,9 @@
+﻿<li id="operation-actions-list" class="active">
+    <a href="#">Operations</a>
+    <ul class="nav">
+        @if (ViewBag.IsVisitor)
+        {
+            Html.RenderAction("FriendshipOperation", "Operation", new { key = ViewBag.Key });
+        }
+    </ul>
+</li>

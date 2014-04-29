@@ -1,0 +1,28 @@
+﻿@using System.Globalization
+@using BSUIR.TermWork.ImageViewer.UI.WebSite.Helpers
+@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Friendship
+
+@model System.Collections.Generic.IList<FriendshipRequestViewModel>
+
+@for (int i = 0; i < this.Model.Count; ++i)
+{
+    <div class="row well well-lg">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 data-key="@Model[i].UserKey">@Model[i].FirstName @Model[i].LastName</h3>
+                </div>
+                <div class="panel-body">
+                    <p align="justify">
+                        @Model[i].Email @Model[i].RequestDate.ToString(CultureInfo.InvariantCulture)
+                    </p>
+                </div>
+                <div class="btn-group" style="margin-bottom: 10px; margin-left: 10px;">
+                    @(this.Html.AjaxModalWindow("Accept ", this.Url.Action("ConfirmRequest", "Friendship", new { senderKey = this.Model[i].UserKey }), "confirm-request-modal", "user-account-control", "btn btn-success", "fa fa-check-square-o", string.Empty))
+                    @(this.Html.AjaxModalWindow("Decline ", this.Url.Action("DeclineRequest", "Friendship", new { senderKey = this.Model[i].UserKey }), "decline-request-modal", "user-account-control", "btn btn-danger", "fa fa-arrows-alt", string.Empty))
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="album-item-divider" />
+}

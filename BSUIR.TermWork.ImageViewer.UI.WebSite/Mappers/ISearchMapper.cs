@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BSUIR.TermWork.ImageViewer.Model;
+using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Search;
 
 namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Mappers
 {
-    using BSUIR.TermWork.ImageViewer.Model;
-    using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Search;
-
     public interface ISearchMapper
     {
         SearchResultViewModel BuildResult(Album album);

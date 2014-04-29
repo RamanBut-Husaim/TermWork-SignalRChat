@@ -3,10 +3,11 @@ using System.Data.SqlTypes;
 
 namespace BSUIR.TermWork.ImageViewer.Model
 {
-    public sealed class FriendshipRequest : Entity<int>
+    public class FriendshipRequest : Entity<int>
     {
         private DateTime _creationdDate;
         private bool _isConfirmed;
+        private bool _isDeclined;
         private Profile _sender;
         private Profile _receiver;
 
@@ -18,6 +19,9 @@ namespace BSUIR.TermWork.ImageViewer.Model
         {
             this.Sender = sender;
             this.Receiver = receiver;
+            this.CreationdDate = DateTime.Now;
+            this.IsConfirmed = false;
+            this.IsDeclined = false;
         }
 
         public DateTime CreationdDate
@@ -32,16 +36,22 @@ namespace BSUIR.TermWork.ImageViewer.Model
             set { this._isConfirmed = value; }
         }
 
-        public Profile Sender
+        public virtual Profile Sender
         {
             get { return this._sender; }
             set { this._sender = value; }
         }
 
-        public Profile Receiver
+        public virtual Profile Receiver
         {
             get { return this._receiver; }
             set { this._receiver = value; }
+        }
+
+        public bool IsDeclined
+        {
+            get { return this._isDeclined; }
+            set { this._isDeclined = value; }
         }
 
         public static class MaxLengthFor

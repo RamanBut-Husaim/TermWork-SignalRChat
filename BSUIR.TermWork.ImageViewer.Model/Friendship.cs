@@ -4,7 +4,7 @@ using System.Data.SqlTypes;
 
 namespace BSUIR.TermWork.ImageViewer.Model
 {
-    public sealed class Friendship : Entity<int>
+    public class Friendship : Entity<int>
     {
         private DateTime _creationDate;
         private Profile _firstProfile;
@@ -13,9 +13,10 @@ namespace BSUIR.TermWork.ImageViewer.Model
 
         public Friendship()
         {
+            this.CreationDate = DateTime.UtcNow;
         }
 
-        public Friendship(Profile firstProfile, Profile secondProfile)
+        public Friendship(Profile firstProfile, Profile secondProfile) : this()
         {
             this.FirstProfile = firstProfile;
             this.SecondProfile = secondProfile;
@@ -27,19 +28,19 @@ namespace BSUIR.TermWork.ImageViewer.Model
             set { this._creationDate = value; }
         }
 
-        public Profile FirstProfile
+        public virtual Profile FirstProfile
         {
             get { return this._firstProfile; }
             set { this._firstProfile = value; }
         }
 
-        public Profile SecondProfile
+        public virtual Profile SecondProfile
         {
             get { return this._secondProfile; }
             set { this._secondProfile = value; }
         }
 
-        public ICollection<Message> Messages
+        public virtual ICollection<Message> Messages
         {
             get { return this._messages; }
             set { this._messages = value; }

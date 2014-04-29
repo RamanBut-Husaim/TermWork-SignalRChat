@@ -1,8 +1,8 @@
-﻿$(document).ready(function () {
+﻿$(document).ready(function() {
     $.ajaxSetup({ cache: false });
 });
 
-$('#album-actions-list').on('click', '.ajax-link-modal-window', function () {
+$('#album-actions-list, #operation-actions-list').on('click', '.ajax-link-modal-window', function() {
     var element = $(this);
     var targetUrl = element.attr('data-target-url');
     var dataGet = element.attr('data-get');
@@ -11,11 +11,11 @@ $('#album-actions-list').on('click', '.ajax-link-modal-window', function () {
         dataObject = $.parseJSON(dataGet);
     }
     $.ajax({
-        url: targetUrl,
-        type: 'GET',
-        data: dataObject
-    })
-        .done(function (data) {
+            url: targetUrl,
+            type: 'GET',
+            data: dataObject
+        })
+        .done(function(data) {
             var targetId = element.attr('data-target-id');
             $('#' + targetId).html(data);
             var modalId = element.attr('data-modal-id');
@@ -25,7 +25,7 @@ $('#album-actions-list').on('click', '.ajax-link-modal-window', function () {
             }
             $.validator.unobtrusive.parse(modalObject);
             modalObject.modal('show');
-            modalObject.on('hidden.bs.modal', function () {
+            modalObject.on('hidden.bs.modal', function() {
                 $('#' + targetId).html('');
             });
 
@@ -33,7 +33,7 @@ $('#album-actions-list').on('click', '.ajax-link-modal-window', function () {
         });
 });
 
-$('#user-album-list').on('click', '.ajax-modal-window', function () {
+$('#user-album-list').on('click', '.ajax-modal-window', function() {
     var element = $(this);
     var targetUrl = element.attr('data-target-url');
     var dataGet = element.attr('data-get');
@@ -42,11 +42,11 @@ $('#user-album-list').on('click', '.ajax-modal-window', function () {
         dataObject = $.parseJSON(dataGet);
     }
     $.ajax({
-        url: targetUrl,
-        type: 'GET',
-        data: dataObject
-    })
-        .done(function (data) {
+            url: targetUrl,
+            type: 'GET',
+            data: dataObject
+        })
+        .done(function(data) {
             var targetId = element.attr('data-target-id');
             $('#' + targetId).html(data);
             var modalId = element.attr('data-modal-id');
@@ -56,7 +56,7 @@ $('#user-album-list').on('click', '.ajax-modal-window', function () {
             }
             $.validator.unobtrusive.parse(modalObject);
             modalObject.modal('show');
-            modalObject.on('hidden.bs.modal', function () {
+            modalObject.on('hidden.bs.modal', function() {
                 $('#' + targetId).html('');
             });
 
@@ -65,16 +65,16 @@ $('#user-album-list').on('click', '.ajax-modal-window', function () {
 });
 
 function handleFormEvent(modalObject, targetId, modalId) {
-    $('form', modalObject).submit(function () {
+    $('form', modalObject).submit(function() {
         if (!$(this).valid())
             return false;
 
         $.ajax({
-            url: this.action,
-            type: this.method,
-            data: $(this).serialize()
-        })
-            .done(function (result) {
+                url: this.action,
+                type: this.method,
+                data: $(this).serialize()
+            })
+            .done(function(result) {
                 if (result.success) {
                     modalObject.modal('hide');
                     location.reload(true);
@@ -91,7 +91,7 @@ function handleFormEvent(modalObject, targetId, modalId) {
                         modalObject = $('#error-modal');
                     }
                     $(modalObject).modal('show');
-                    modalObject.on('hidden.bs.modal', function () {
+                    modalObject.on('hidden.bs.modal', function() {
                         $('#' + targetId).html('');
                     });
                     $.validator.unobtrusive.parse(modalObject);

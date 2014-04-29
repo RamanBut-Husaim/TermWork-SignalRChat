@@ -167,7 +167,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                 }
                 catch (Exception ex)
                 {
-                    this.ModelState.AddModelError(string.Empty, Resources.Resources.OperationFailure);
+                    this.ModelState.AddModelError(string.Empty, ex.Message);
                 }
             }
             else

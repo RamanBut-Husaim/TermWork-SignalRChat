@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BSUIR.TermWork.ImageViewer.Model;
+using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Account;
 
 namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Mappers
 {
-    using BSUIR.TermWork.ImageViewer.Model;
-    using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Account;
-
     public interface IUserAccountMapper
     {
         User BuildRegister(AccountRegisterViewModel viewModel);

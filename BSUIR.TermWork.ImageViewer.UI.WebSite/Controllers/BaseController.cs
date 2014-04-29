@@ -22,14 +22,29 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
             {
                 try
                 {
-                    IList<Subscription> subscriptions = subscriptionService.GetFilteredSubscriptionsForUser(user.Id);
-                    Session[Constants.SessionSubscriptionTargets] = subscriptions.Select(p => p.Target.Key).ToArray();
+                    IList<Subscription> subscriptions =
+                        subscriptionService.GetFilteredSubscriptionsForUser(user.Id);
+                    this.Session[Constants.SessionSubscriptionTargets] =
+                        subscriptions.Select(p => p.Target.Key).ToArray();
                 }
                 catch (Exception ex)
                 {
-                    Session[Constants.SessionSubscriptionTargets] = new Subscription[0];
-                }
-                
+                    this.Session[Constants.SessionSubscriptionTargets] = new int[0];
+                } 
+            }
+        }
+
+        protected virtual void UpdateFriendsList(IFriendshipService friendshipService)
+        {
+            var user = this.User.Identity as CustomIdentity;
+            try
+            {
+                this.Session[Constants.SessionFriendTargets] =
+                    friendshipService.GetFriends(user.Id).Select(p => p.User.Key).ToArray();
+            }
+            catch (Exception ex)
+            {
+                this.Session[Constants.SessionFriendTargets] = new int[0];
             }
         }
 
@@ -50,7 +65,6 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                 }
                 catch (Exception ex)
                 {
-                    
                 }
             }
         }
