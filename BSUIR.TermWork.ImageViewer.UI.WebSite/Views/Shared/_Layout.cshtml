@@ -70,8 +70,13 @@
         @Scripts.Render("~/bundles/jqueryval")
         @Scripts.Render("~/bundles/jqueryui")
         @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/moment")
         <script type="text/javascript" src="~/Scripts/account/account.js"></script>
         <script type="text/javascript" src="~/Scripts/home/searchbar.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.signalR-2.0.3.js"></script>
+        @*<script type="text/javascript" src="~/Scripts/hubs/hubs.js"></script>*@
+        <script type="text/javascript" src="~/messaging/js"></script>
+        <script type="text/javascript" src="~/Scripts/chat/chat.js"></script>
         @(this.RenderSection("scripts", false))
     </body>
 </html>

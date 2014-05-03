@@ -11,6 +11,7 @@
     <AssemblyName>BSUIR.TermWork.ImageViewer.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +52,7 @@
     <Compile Include="ImageAlbumService.cs" />
     <Compile Include="ImageResizingService.cs" />
     <Compile Include="MembershipService.cs" />
+    <Compile Include="MessageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchService.cs" />
     <Compile Include="SubscriptionService.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="Validators\EntityBaseValidator.cs" />
     <Compile Include="Validators\EntityValidator.cs" />
     <Compile Include="Validators\ImageValidator.cs" />
+    <Compile Include="Validators\MessageValidator.cs" />
     <Compile Include="Validators\ProfileValidator.cs" />
     <Compile Include="Validators\RoleValidator.cs" />
     <Compile Include="Validators\UserValidator.cs" />

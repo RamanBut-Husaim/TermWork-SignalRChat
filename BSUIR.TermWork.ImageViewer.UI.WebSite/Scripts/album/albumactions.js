@@ -2,7 +2,7 @@
     $.ajaxSetup({ cache: false });
 });
 
-$('#album-actions-list, #operation-actions-list').on('click', '.ajax-link-modal-window', function() {
+$('#album-actions-list, #operation-actions-list, #friends-navbar-list').on('click', '.ajax-link-modal-window', function() {
     var element = $(this);
     var targetUrl = element.attr('data-target-url');
     var dataGet = element.attr('data-get');

@@ -1,0 +1,18 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Chat
+
+@model MessageViewModel
+
+<div class="form-group">
+    <div class="media">
+        <a class="pull-left">
+            <img class="media-object" src="@Url.Content("~/Content/images/profile_pages/no_preview_sm.png")" />
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">@Model.Author (@Model.Date)</h4>
+            <p align="justify">
+                @Model.Text
+            </p>
+        </div>
+    </div>
+</div>
+

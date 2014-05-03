@@ -1,0 +1,35 @@
+﻿@using BSUIR.TermWork.ImageViewer.UI.WebSite.ViewModel.Chat
+
+@model DualChatRoomViewModel
+
+<div class="modal fade" id="dual-chat-room-modal" tabindex="-1" role="dialog" aria-labelledby="dual-chat-room-modal-header" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 data-sender-user-name="@Model.SenderFirstName @Model.SenderLastName" 
+                    data-receiver-user-key ="@Model.ReceiverUserKey" 
+                    class="modal-title" 
+                    id="dual-chat-room-modal-header">
+                    @Model.ReceiverFirstName @Model.ReceiverLastName
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row col-md-2" style="margin-right: 10px;">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a data-period="1" data-href="@Url.Action("GetDayMessages", "Chat", new { friendKey = @Model.ReceiverUserKey })" href="#">One day</a></li>
+                            <li><a data-period="1" data-href="@Url.Action("GetDayMessages", "Chat", new { friendKey = @Model.ReceiverUserKey })" href="#">Week</a></li>
+                            <li><a data-period="1" data-href="@Url.Action("GetDayMessages", "Chat", new { friendKey = @Model.ReceiverUserKey })" href="#">Month</a></li>
+                        </ul>    
+                    </div>
+                    <div id="message-list">
+                        @{ Html.RenderPartial("~/Views/Chat/_MessageList.cshtml", @Model.Messages); }     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -61,6 +61,7 @@ namespace BSUIR.TermWork.ImageViewer.Services.Validators
             this._validatorsPool.Add(typeof(Album).Name, new AlbumValidator());
             this._validatorsPool.Add(typeof(Image).Name, new ImageValidator());
             this._validatorsPool.Add(typeof(Comment).Name, new CommentValidator());
+            this._validatorsPool.Add(typeof(Message).Name, new MessageValidator());
         }
 
         #endregion

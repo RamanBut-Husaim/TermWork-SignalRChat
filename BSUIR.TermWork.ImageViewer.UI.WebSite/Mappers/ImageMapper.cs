@@ -37,7 +37,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Mappers
                     image.ContentType,
                     this.GetImageThumbnailContent(image));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 result.Content = string.Empty;
             }
@@ -63,7 +63,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Mappers
                     image.ContentType,
                     this.GetImageContent(image));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 result.Content = string.Empty;
             }

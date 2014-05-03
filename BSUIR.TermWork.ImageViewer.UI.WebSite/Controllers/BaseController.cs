@@ -27,7 +27,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                     this.Session[Constants.SessionSubscriptionTargets] =
                         subscriptions.Select(p => p.Target.Key).ToArray();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     this.Session[Constants.SessionSubscriptionTargets] = new int[0];
                 } 
@@ -42,7 +42,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                 this.Session[Constants.SessionFriendTargets] =
                     friendshipService.GetFriends(user.Id).Select(p => p.User.Key).ToArray();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 this.Session[Constants.SessionFriendTargets] = new int[0];
             }
@@ -63,7 +63,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                     User target = membershipService.GetUserByKey(key);
                     subscriptionService.ResetNewSubscriptions(subscriber, target);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                 }
             }

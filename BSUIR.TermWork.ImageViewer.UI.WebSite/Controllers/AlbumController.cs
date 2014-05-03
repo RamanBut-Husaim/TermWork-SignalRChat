@@ -66,7 +66,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                 IList<Album> albums = this._imageAlbumService.GetAlbumsByUserKey(key.Value);
                 result = albums.Select(p => this._albumMapper.BuildAlbumHeader(p)).ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 
@@ -148,9 +148,10 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                         this._albumMapper.UpdateAlbum(sourceAlbum, viewModel);
                         this._imageAlbumService.UpdateAlbum(owner, sourceAlbum);
                     }
+
                     result = true;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     this.ModelState.AddModelError(string.Empty, Resources.Resources.OperationFailure);
                 }
@@ -292,7 +293,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                     this._imageAlbumService.CreateAlbum(owner, album);
                     result = true;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     this.ModelState.AddModelError(string.Empty, Resources.Resources.OperationFailure);
                 }

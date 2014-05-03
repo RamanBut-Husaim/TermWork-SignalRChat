@@ -98,14 +98,14 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                     this._commentService.CreateComment(owner, image, comment);
                     result = true;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    this.ModelState.AddModelError("", Resources.Resources.OperationFailure);
+                    this.ModelState.AddModelError(string.Empty, Resources.Resources.OperationFailure);
                 }
             }
             else
             {
-                this.ModelState.AddModelError("", Resources.Resources.OperationFailure);
+                this.ModelState.AddModelError(string.Empty, Resources.Resources.OperationFailure);
             }
 
             if (result)

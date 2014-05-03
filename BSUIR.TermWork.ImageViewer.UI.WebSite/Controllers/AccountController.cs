@@ -106,7 +106,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
 
                     result = true;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     this.ModelState.AddModelError(string.Empty, Resources.Resources.OperationFailure);
                 }
@@ -405,7 +405,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
 
                     result = true;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     this.ModelState.AddModelError(string.Empty, Resources.Resources.OperationFailure);
                 }

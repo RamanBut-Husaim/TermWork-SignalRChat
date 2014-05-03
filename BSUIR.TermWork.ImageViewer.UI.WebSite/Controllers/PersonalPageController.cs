@@ -40,7 +40,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                     return this.RedirectToAction("Index", "Home");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return this.RedirectToAction("Index", "Home");
             }

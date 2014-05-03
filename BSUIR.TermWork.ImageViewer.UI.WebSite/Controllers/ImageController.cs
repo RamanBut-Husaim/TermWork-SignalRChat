@@ -137,9 +137,10 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                         this._imageMapper.UpdateImage(sourceImage, viewModel);
                         this._imageAlbumService.UpdateImage(owner, album, sourceImage);
                     }
+
                     result = true;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     this.ModelState.AddModelError(string.Empty, Resources.Resources.OperationFailure);
                 }
@@ -230,7 +231,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                             .ToList();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 
@@ -252,7 +253,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                     return this.RedirectToAction("Index", "Home");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return this.RedirectToAction("Index", "Home");
             }
@@ -386,7 +387,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Controllers
                     return this.RedirectToAction("Index", "Home");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return this.RedirectToAction("Index", "Home");
             }

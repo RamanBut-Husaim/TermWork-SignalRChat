@@ -12,6 +12,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite
 
             bundles.Add(
                 new ScriptBundle("~/bundles/jqueryui").Include("~/Scripts/jquery-ui-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/moment").Include("~/Scripts/moment*"));
 
             bundles.Add(
                 new ScriptBundle("~/bundles/jqueryval").Include(

@@ -32,16 +32,6 @@ namespace BSUIR.TermWork.ImageViewer.Services
         #region Fields
 
         /// <summary>
-        /// The _access right repository.
-        /// </summary>
-        private readonly IRepository<AccessRight, int> _accessRightRepository;
-
-        /// <summary>
-        /// The _access right validator.
-        /// </summary>
-        private readonly IEntityValidator<AccessRight> _accessRightValidator;
-
-        /// <summary>
         /// The _hash generator.
         /// </summary>
         private readonly IHashGenerator _hashGenerator;
@@ -106,20 +96,17 @@ namespace BSUIR.TermWork.ImageViewer.Services
             IEntityValidator<User> userValidator, 
             IEntityValidator<Role> roleValidator, 
             IEntityValidator<Profile> profileValidator, 
-            IEntityValidator<AccessRight> accessRightValidator, 
             IHashGenerator hashGenerator) : base(unitOfWork)
         {
             this._userValidator = userValidator;
             this._roleValidator = roleValidator;
             this._profileValidator = profileValidator;
-            this._accessRightValidator = accessRightValidator;
             this._hashGenerator = hashGenerator;
 
             this._userRepository = this.UnitOfWork.Repository<User, int>() as IUserRepository;
             this._profileRepository =
                 this.UnitOfWork.Repository<Profile, int>() as IProfileRepository;
             this._roleRepository = this.UnitOfWork.Repository<Role, int>();
-            this._accessRightRepository = this.UnitOfWork.Repository<AccessRight, int>();
         }
 
         #endregion

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSUIR.TermWork.ImageViewer.Model", "BSUIR.TermWork.ImageViewer.Model\BSUIR.TermWork.ImageViewer.Model.csproj", "{BAEEBE4A-EA27-407F-BB1F-851B9BDA6526}"
 EndProject
@@ -23,8 +23,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{A8B7D3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSUIR.TermWork.ImageViewer.Shared", "BSUIR.TermWork.ImageViewer.Shared\BSUIR.TermWork.ImageViewer.Shared.csproj", "{8B87910C-1599-4361-BD11-D909113A8EFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSUIR.TermWork.ImageViewer.UI.Console", "BSUIR.TermWork.ImageViewer.UI.Console\BSUIR.TermWork.ImageViewer.UI.Console.csproj", "{0EAD85BD-E9C7-4D3F-8D94-A17DFE02ADE5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSUIR.TermWork.ImageViewer.UI.WebSite", "BSUIR.TermWork.ImageViewer.UI.WebSite\BSUIR.TermWork.ImageViewer.UI.WebSite.csproj", "{8AFDBB62-BECE-4BC4-B30C-943F43D508EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSUIR.TermWork.ImageViewer.Services.Contracts", "BSUIR.TermWork.ImageViewer.Services.Contracts\BSUIR.TermWork.ImageViewer.Services.Contracts.csproj", "{D9C82DF9-7F43-459B-A3A1-5BF35BD32207}"
@@ -34,6 +32,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSUIR.TermWork.ImageViewer.UI.Infrastructure", "BSUIR.TermWork.ImageViewer.UI.Infrastructure\BSUIR.TermWork.ImageViewer.UI.Infrastructure.csproj", "{6384A1BE-361E-4109-9C82-B1DA4E0E82C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSUIR.TermWork.ImageViewer.Resources", "BSUIR.TermWork.ImageViewer.Resources\BSUIR.TermWork.ImageViewer.Resources.csproj", "{A532C7A4-46A0-403B-A2BD-E7D4BB761710}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC89763C-83CE-4085-AE49-C1945197CFF2}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,10 +60,6 @@ Global
 		{8B87910C-1599-4361-BD11-D909113A8EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B87910C-1599-4361-BD11-D909113A8EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B87910C-1599-4361-BD11-D909113A8EFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0EAD85BD-E9C7-4D3F-8D94-A17DFE02ADE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EAD85BD-E9C7-4D3F-8D94-A17DFE02ADE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0EAD85BD-E9C7-4D3F-8D94-A17DFE02ADE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0EAD85BD-E9C7-4D3F-8D94-A17DFE02ADE5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8AFDBB62-BECE-4BC4-B30C-943F43D508EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8AFDBB62-BECE-4BC4-B30C-943F43D508EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AFDBB62-BECE-4BC4-B30C-943F43D508EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -91,7 +90,6 @@ Global
 		{E4DEB6EB-9EE6-4640-B1F2-38E490AADB40} = {9C9AE4CE-A5E7-48FE-9CEF-D34C957E07F8}
 		{D9C82DF9-7F43-459B-A3A1-5BF35BD32207} = {3496FE67-3D0F-4A1F-BDAD-54B37300C270}
 		{A5D8CEEF-AC53-4B7F-9BE3-00CA723738A8} = {3496FE67-3D0F-4A1F-BDAD-54B37300C270}
-		{0EAD85BD-E9C7-4D3F-8D94-A17DFE02ADE5} = {34C1FB8D-22B6-48A0-A0C8-8C27FB3F5B5A}
 		{8AFDBB62-BECE-4BC4-B30C-943F43D508EA} = {34C1FB8D-22B6-48A0-A0C8-8C27FB3F5B5A}
 		{6384A1BE-361E-4109-9C82-B1DA4E0E82C4} = {34C1FB8D-22B6-48A0-A0C8-8C27FB3F5B5A}
 		{8B87910C-1599-4361-BD11-D909113A8EFE} = {A8B7D312-C63B-4B65-B163-8FE1D3713FE1}

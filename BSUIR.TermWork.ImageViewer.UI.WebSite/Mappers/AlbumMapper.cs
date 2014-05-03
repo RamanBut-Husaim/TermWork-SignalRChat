@@ -77,7 +77,7 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite.Mappers
                     result.ThumbnailContentType,
                     this.GetImageContent(randomImage));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 result.Thumbnail = string.Empty;
                 result.ThumbnailContentType = string.Empty;

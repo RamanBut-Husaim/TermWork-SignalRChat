@@ -1,4 +1,6 @@
-﻿using Owin;
+﻿using Microsoft.AspNet.SignalR;
+
+using Owin;
 
 namespace BSUIR.TermWork.ImageViewer.UI.WebSite
 {
@@ -6,7 +8,9 @@ namespace BSUIR.TermWork.ImageViewer.UI.WebSite
     {
         public void Configuration(IAppBuilder app)
         {
-            app.MapSignalR();
+            var hubConfiguration = new HubConfiguration { EnableJavaScriptProxies = true };
+
+            app.MapSignalR("/messaging", hubConfiguration);
         }
     }
 }

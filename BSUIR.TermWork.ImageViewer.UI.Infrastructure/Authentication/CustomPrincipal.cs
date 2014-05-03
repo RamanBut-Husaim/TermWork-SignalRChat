@@ -1,8 +1,8 @@
-﻿namespace BSUIR.TermWork.ImageViewer.UI.Infrastructure.Authentication
-{
-    using System;
-    using System.Security.Principal;
+﻿using System;
+using System.Security.Principal;
 
+namespace BSUIR.TermWork.ImageViewer.UI.Infrastructure.Authentication
+{
     public sealed class CustomPrincipal : IPrincipal
     {
         private readonly IIdentity _identity;
@@ -15,6 +15,7 @@
             {
                 return result;
             }
+
             for (int i = 0; i < this._roles.Length; ++i)
             {
                 if (this._roles[i] != null
@@ -24,6 +25,7 @@
                     break;
                 }
             }
+
             return result;
         }
 
